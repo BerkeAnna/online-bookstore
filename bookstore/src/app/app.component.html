@@ -1,0 +1,11 @@
+<app-menu></app-menu>
+
+<div class="main-component">
+  <app-home *ngIf="page === 'home'"></app-home>
+</div>
+<app-books *ngIf="page === 'books'"></app-books>
+<app-contact *ngIf="page === 'contact'"></app-contact>
+<app-cart *ngIf="page === 'cart'"></app-cart>
+<!--
+<router-outlet></router-outlet>
+-->
