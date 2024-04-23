@@ -14,14 +14,14 @@
 
 .image-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // Creates three columns
+    grid-template-columns: repeat(5, 1fr); // Creates three columns
     grid-gap: 20px; // Adjust this value for desired spacing
     margin: 20px auto; // Center the grid horizontally
     width: calc(100% - 40px); // Adjust width to account for margin
     justify-content: center;
     justify-items: center;
     background-color:  rgb(255, 244, 240);
-    padding: 20px;
+    padding: 10px;
   }
   
   .image-grid > div { // Assuming each book is wrapped in a div
@@ -32,7 +32,7 @@
   }
   
   .bookImage {
-    width: 60%; // Adjust this to change the size of the images within their cells
+    width: 50%; // Adjust this to change the size of the images within their cells
     height: auto; // Maintains aspect ratio
     margin: auto; // Centers the image in the cell
   }
@@ -42,6 +42,8 @@
     background-color: rgb(237, 149, 98);
     font-weight: bold;
     border-color:  rgb(237, 178, 186);
+    border-radius: 50px;
+  
   }
   
   h3, h4 {
