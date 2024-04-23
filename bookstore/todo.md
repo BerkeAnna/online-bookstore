@@ -8,3 +8,6 @@
     - képekhez berakni egy egy könyvklépet, ami az adott kategórián belül meg fog jelenni.
     - for ciklussal fogom, és az adott kategória képét kirakom egymás után, úgy hogy egy sorban max 3 legyen
 -->
+
+2024.04.23. 12:46
+    5 ->0:00

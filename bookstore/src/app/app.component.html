@@ -1,11 +1,18 @@
-<app-menu></app-menu>
 
-<div class="main-component">
-  <app-home *ngIf="page === 'home'"></app-home>
-</div>
-<app-books *ngIf="page === 'books'"></app-books>
-<app-contact *ngIf="page === 'contact'"></app-contact>
-<app-cart *ngIf="page === 'cart'"></app-cart>
-<!--
-<router-outlet></router-outlet>
--->
+<app-menu></app-menu>
+<ng-template [ngIf]="page === 'home'">
+  <div class="main_component">
+    <app-home></app-home>
+  </div>
+</ng-template>
+<ng-template [ngIf]="page === 'books'">
+  <app-books></app-books>
+</ng-template>
+<ng-template [ngIf]="page === 'contact'">
+  <app-contact>
+    <h1>This is the contact page.</h1>
+  </app-contact>
+</ng-template>
+<ng-template [ngIf]="page === 'cart'">
+  <app-cart></app-cart>
+</ng-template>
