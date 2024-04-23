@@ -1,1 +1,20 @@
-<p>books works!</p>
+
+<select #chosenCategory (change)="reload()">
+    <option value="image-1">fantasy</option>
+    <option value="image-6">romance</option>
+    <option value="image-3">horror</option>
+    <option value="image-4">thriller</option>
+    <option value="image-5">krimi</option>
+    <option value="image-2">young adult</option>
+</select>
+
+<div>
+    <img class="bookImage" [src]="'assets/' + chosenCategory.value + '.jpg'">
+
+</div>
+
+<!---
+    - lenyíló lista - könyv kategóriák - fantasy, rom, horror
+    - képekhez berakni egy egy könyvklépet, ami az adott kategórián belül meg fog jelenni.
+    - for ciklussal fogom, és az adott kategória képét kirakom egymás után, úgy hogy egy sorban max 3 legyen
+-->
