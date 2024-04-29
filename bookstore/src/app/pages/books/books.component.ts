@@ -12,7 +12,6 @@ export class BooksComponent implements OnInit{
   chosenCategory: any;
 
   constructor() {
-    this.chosenCategory = this.bookObject[0];
   }
 
  
@@ -20,8 +19,8 @@ export class BooksComponent implements OnInit{
     
   }
 
-  reload(){
-    
+  loadCategory(categoryObejct : any) {
+    this.chosenCategory = categoryObejct;
   }
 
 

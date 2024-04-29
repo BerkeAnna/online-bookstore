@@ -1,0 +1,3 @@
+<select (change)="reload()" [(ngModel)]="chosenCategory">
+    <option *ngFor="let obj of bookObjectInput" [ngValue]="obj">{{obj.id}}</option>
+</select>

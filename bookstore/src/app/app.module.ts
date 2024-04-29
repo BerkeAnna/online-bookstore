@@ -9,6 +9,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { MenuComponent } from './shared/menu/menu.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule } from '@angular/forms';
+import { ListComponent } from './pages/books/list/list.component';
+import { ViewerComponent } from './pages/books/viewer/viewer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     BooksComponent,
     ContactComponent,
     MenuComponent,
-    CartComponent
+    CartComponent,
+    ListComponent,
+    ViewerComponent
   ],
   imports: [
     BrowserModule,
