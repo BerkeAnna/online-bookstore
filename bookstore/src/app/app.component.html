@@ -1,5 +1,5 @@
 
-<app-menu (selectedPage)="changePage($event)"></app-menu>
+<app-menu (selectedPage)="changePage($event)" ></app-menu>
 
 <ng-container [ngSwitch]="page">
   <ng-container *ngSwitchCase="'home'">
@@ -23,3 +23,5 @@
   </ng-container>
 
 </ng-container>
+
+<router-outlet></router-outlet>

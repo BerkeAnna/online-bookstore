@@ -13,24 +13,23 @@ import { ListComponent } from './pages/books/list/list.component';
 import { ViewerComponent } from './pages/books/viewer/viewer.component';
 import { BookPageComponent } from './pages/books/book-page/book-page.component';
 import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import { BooksModule } from './pages/books/books.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BooksComponent,
     ContactComponent,
     MenuComponent,
     CartComponent,
-    ListComponent,
-    ViewerComponent,
-    BookPageComponent,
-    DateFormatPipe
+    DateFormatPipe,
+    BookPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BooksModule
   ],
   providers: [
     provideClientHydration()

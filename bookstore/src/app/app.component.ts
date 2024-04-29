@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookstore';
-  page= 'home';
+  page= '';
+
+  constructor(private router: Router){
+
+  }
 
   changePage(selectedPage: string){
-    this.page = selectedPage;
+    //this.page = selectedPage;
+    this.router.navigateByUrl(selectedPage);
   }
 }
