@@ -17,3 +17,14 @@
 
 2024.04.29. 7:02
     5 -> 23:43 - kategória megjelenik konstansokkal. De a select a homenál is látszik betöltééskor
+
+2024.04.29. 7:43
+    5- > 35:48
+
+2024.04.29. 9:15
+    6. vidi jön
+
+
+todo: 
+- comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
+- 1-5ig pontzás

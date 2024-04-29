@@ -1,0 +1,59 @@
+<h1>Book Title</h1>
+<h2>Author</h2>
+<h3>description</h3>
+
+<div class="image">
+    
+    <img  [src]="'assets/Fantasy.jpg'" class="bookImage">
+</div>
+
+
+<h4>book review</h4>
+
+
+<div class="break"></div>
+
+<div class="comment" *ngIf="comments.length">
+    <table>
+        <tr class="table-header">
+            <th>User</th>
+            <th>Stars</th>
+            <th>Comment</th>
+            <th>Date</th>
+        </tr>
+        <tr *ngFor="let comment of comments; let i = index;"  [ngClass]="i % 2 === 0 ? 'table-header-even': 'table-header-odd'">
+            <td>{{comment.username}}</td>
+            <td>{{comment.stars}}</td>
+            <td>{{comment.comment}}</td>
+            <td>{{comment.date | dateFormat}}</td>
+        </tr>
+    </table>
+</div>
+
+<div class="break"></div>
+
+<div class="comment">
+    <div>
+        <label for="userame">Username:</label>
+        <input type="text" [(ngModel)]="commentObject['username']"/>
+    </div>
+    <div class="break"></div>
+    <div>
+        <label for="stars">Stars:</label>
+        <select [(ngModel)]="commentObject['stars']" id="stars">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="break"></div>
+    <div>
+        <textarea rows="10" cols="50" [(ngModel)]="commentObject['comment']"></textarea>
+    </div>
+    <div class="break"></div>
+    <div>
+        <button (click)="addComment()">SAVE</button>
+    </div>
+</div>

@@ -11,6 +11,8 @@ import { CartComponent } from './pages/cart/cart.component';
 import { FormsModule } from '@angular/forms';
 import { ListComponent } from './pages/books/list/list.component';
 import { ViewerComponent } from './pages/books/viewer/viewer.component';
+import { BookPageComponent } from './pages/books/book-page/book-page.component';
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ViewerComponent } from './pages/books/viewer/viewer.component';
     MenuComponent,
     CartComponent,
     ListComponent,
-    ViewerComponent
+    ViewerComponent,
+    BookPageComponent,
+    DateFormatPipe
   ],
   imports: [
     BrowserModule,

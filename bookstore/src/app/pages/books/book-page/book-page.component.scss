@@ -1,0 +1,73 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0; // Make sure there is no padding adding extra space
+    margin: 0; // Reset any margin to ensure full width usage
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+  
+  .bookImage {
+    width: 50%; // Adjust this to change the size of the images within their cells
+    height: auto; // Maintains aspect ratio
+    margin: auto; // Centers the image in the cell
+  }
+
+  .buy-button{
+    color:  rgb(0, 0, 0);
+    background-color: rgb(237, 149, 98);
+    font-weight: bold;
+    border-color:  rgb(237, 178, 186);
+    border-radius: 50px;
+  
+  }
+  
+  h2, h3, h4 {
+    text-align: center;
+    margin: 0; // Removes default margin to align text properly within the cell
+  }
+
+  h1 {
+    color: rgb(237, 149, 98);
+    text-shadow: 1px 1px black;
+    text-align: center;
+    margin: 0; 
+    text-transform: uppercase;
+    text-decoration: underline;
+  }
+
+  .comment{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    }
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    .table-header{
+        background-color:  rgb(237, 149, 98);
+    }
+
+    .table-header-even {
+        background-color: rgb(255, 208, 174);
+    }
+
+    .table-header-odd {
+        background-color:  rgb(255, 221, 197);
+    }
+
+  

@@ -12,11 +12,12 @@ export class ListComponent implements OnInit{
   chosenCategory: any;
 
   ngOnInit(): void {
+    this.chosenCategory = this.bookObjectInput[0];
+    this.reload();
   }
 
   constructor(){
     
-    this.chosenCategory = this.bookObjectInput[0];
   }
   
   reload(){
