@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookObject } from '../../shared/constants/constants';
 
 @Component({
   selector: 'app-books',
@@ -7,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit{
 
+  bookObject: Array<any> = BookObject;
+  chosenCategory: any;
+
+  constructor() {
+    this.chosenCategory = this.bookObject[0];
+  }
+
+ 
+  ngOnInit(): void {
+    
+  }
+
   reload(){
     
   }
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
 }

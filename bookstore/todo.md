@@ -14,3 +14,6 @@
     
 2024.04.23. 15:17
     5 -> 15:46
+
+2024.04.29. 7:02
+    5 -> 23:43 - kategória megjelenik konstansokkal. De a select a homenál is látszik betöltééskor

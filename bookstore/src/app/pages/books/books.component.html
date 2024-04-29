@@ -1,22 +1,26 @@
 
-
-<select #chosenCategory (change)="reload()">
+<select (change)="reload()" [(ngModel)]="chosenCategory">
+    <option *ngFor="let obj of bookObject" [ngValue]="obj">{{obj.id}}</option>
+</select>
+<!---<select #chosenCategory (change)="reload()" >
     <option value="Fantasy">fantasy</option>
     <option value="Romance">romance</option>
     <option value="Horror">horror</option>
     <option value="Thriller">thriller</option>
     <option value="YoungAdult">young adult</option>
 </select>
+-->
+
 <div>
-    <h1>{{chosenCategory.value}}</h1>
+    <h1>{{chosenCategory.id}}</h1>
 </div>
 
-<div class="image-grid">
+<div class="image-grid" *ngIf="chosenCategory">
     <div *ngFor="let img of [].constructor(30)">
-    <img  [src]="'assets/' + chosenCategory.value + '.jpg'" class="bookImage">
-    <h4>Author</h4>
-    <h3>Title</h3>
-    <h4>5 $</h4>
+    <img  [src]="'assets/' + chosenCategory.id + '.jpg'" class="bookImage">
+    <h4>{{chosenCategory.author}}</h4>
+    <h3>{{chosenCategory.title}}</h3>
+    <h4>{{chosenCategory.price}} $</h4>
     <button class="buy-button">BUY</button>
 </div>
 </div>
