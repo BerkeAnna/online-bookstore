@@ -5,7 +5,7 @@ import { BooksRoutingModule } from './books-routing.module';
 import { BooksComponent } from './books.component';
 import { ListComponent } from './list/list.component';
 import { ViewerComponent } from './viewer/viewer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateFormatPipe } from '../../shared/pipes/date-format.pipe';
 
 
@@ -23,7 +23,8 @@ import { DateFormatPipe } from '../../shared/pipes/date-format.pipe';
   imports: [
     CommonModule,
     BooksRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class BooksModule { }

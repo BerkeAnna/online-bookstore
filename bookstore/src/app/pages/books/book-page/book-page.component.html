@@ -31,29 +31,31 @@
 </div>
 
 <div class="break"></div>
+<form [formGroup]="commentsForm">
+    <div class="comment">
+        <div>
+            <label for="userame">Username:</label>
+            <input type="text" formControlName="username"/>
 
-<div class="comment">
-    <div>
-        <label for="userame">Username:</label>
-        <input type="text" [(ngModel)]="commentObject['username']"/>
+        </div>
+        <div class="break"></div>
+        <div>
+            <label for="stars">Stars:</label>
+            <select formControlName="stars" id="stars">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="break"></div>
+        <div>
+            <textarea rows="10" cols="50" formControlName="comment"></textarea>
+        </div>
+        <div class="break"></div>
+        <div>
+            <button (click)="addComment()" [routerLink]="'/book-page/successful/' + commentObject['username']">SAVE</button>
+        </div>
     </div>
-    <div class="break"></div>
-    <div>
-        <label for="stars">Stars:</label>
-        <select [(ngModel)]="commentObject['stars']" id="stars">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-    <div class="break"></div>
-    <div>
-        <textarea rows="10" cols="50" [(ngModel)]="commentObject['comment']"></textarea>
-    </div>
-    <div class="break"></div>
-    <div>
-        <button (click)="addComment()" [routerLink]="'/book-page/successful/' + commentObject['username']">SAVE</button>
-    </div>
-</div>
+</form>

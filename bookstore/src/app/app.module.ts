@@ -18,12 +18,12 @@ import { BooksModule } from './pages/books/books.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    ContactComponent,
+    //HomeComponent,
+    //ContactComponent,
     MenuComponent,
-    CartComponent,
-    DateFormatPipe,
-    BookPageComponent
+    //CartComponent,
+    //DateFormatPipe,
+    //BookPageComponent
   ],
   imports: [
     BrowserModule,

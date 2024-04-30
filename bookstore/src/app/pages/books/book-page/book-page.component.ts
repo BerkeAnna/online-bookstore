@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Comment } from '../../../shared/models/Comment';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-book-page',
@@ -11,8 +13,26 @@ export class BookPageComponent implements OnInit{
   commentObject: any = {};
   comments: Array<any> = [];
 
+  
+  // TypeScript Code in your Component
+commentsForm = this.fb.group({
+  username: [''],
+  stars: [''],    // Ensure this is intended to be a string; otherwise, consider setting it as a number
+  comment: [''],
+  date: [new Date()]
+});
+
+
+  constructor(private fb: FormBuilder){
+
+  }
+
 
   ngOnInit(): void {
+  }
+
+  createForm(model: Comment){
+    return this.fb.group(model)
   }
 
   addComment(){
