@@ -54,6 +54,6 @@
     </div>
     <div class="break"></div>
     <div>
-        <button (click)="addComment()">SAVE</button>
+        <button (click)="addComment()" [routerLink]="'/book-page/successful/' + commentObject['username']">SAVE</button>
     </div>
 </div>

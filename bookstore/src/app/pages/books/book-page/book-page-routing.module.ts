@@ -5,7 +5,8 @@ import { BookPageComponent } from './book-page.component';
 const routes: Routes = [
   {
     path: '', component: BookPageComponent
-  }
+  },
+  { path: 'successful', loadChildren: () => import('./successful/successful.module').then(m => m.SuccessfulModule) }
 ];
 
 @NgModule({
