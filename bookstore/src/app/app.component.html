@@ -1,27 +1,29 @@
 
-<app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"></app-menu>
 
-<!---<ng-container [ngSwitch]="page">
-  <ng-container *ngSwitchCase="'home'">
-    <div class="main_component">
-      <app-home></app-home>
-    </div>
-  </ng-container>
-  <ng-container *ngSwitchCase="'books'">
-    <app-books></app-books>
-  </ng-container>
-  <ng-container *ngSwitchCase="'book-page'">
-    <app-book-page></app-book-page>
-  </ng-container>
-  <ng-container *ngSwitchCase="'contact'">
-    <app-contact>
-      <h1>This is the contact page.</h1>
-    </app-contact>
-  </ng-container>
-  <ng-container *ngSwitchCase="'cart'">
-    <app-cart></app-cart>
-  </ng-container>
+<mat-sidenav-container>
+  <mat-sidenav>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"></app-menu>
+  </mat-sidenav>
 
-</ng-container>
---->
-<router-outlet></router-outlet>
+  <mat-sidenav-content>
+    <mat-toolbar color="secondary">
+      <button mat-icon-buttn>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div>BOOKSTORE</div>
+      <div>
+        <ul>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="signup">Register</a></li>
+          <li><a routerLink="home">Home</a></li>
+          <li><a routerLink="books">Books</a></li>
+          <li><a routerLink="book-page">Book</a></li>
+          <li><a routerLink="contact">Contact</a></li>
+          <li><a routerLink="cart">Cart</a></li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -5,3 +5,5 @@ $bgcolor: rgb(251, 237, 231);
 html{
     background-color: $bgcolor ;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
