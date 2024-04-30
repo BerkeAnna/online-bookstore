@@ -28,6 +28,9 @@
     menu comp betöltése újra - ezért jelenik meg a tartalom után az ami az urlben van 
     6. vidi 26:50
 
+2024.04.30. 9:41
+    7.vidi 29:29
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
