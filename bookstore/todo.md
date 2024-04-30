@@ -38,6 +38,9 @@
     7. v 36 p
     a successfulnál undefiniedet ad vissza
 
+2024.04.30. 12:22
+    7.vidi 48:10
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
