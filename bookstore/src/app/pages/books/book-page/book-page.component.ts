@@ -12,7 +12,7 @@ export class BookPageComponent implements OnInit{
 
 
  // commentObject: any = {};
-  comments: Array<any> = [];
+  comments: Array<Comment> = [];
 
   
   // TypeScript Code in your Component
