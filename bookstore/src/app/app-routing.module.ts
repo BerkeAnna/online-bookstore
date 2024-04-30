@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SuccessfulComponent } from './pages/books/book-page/successful/successful.component';
 
 const routes: Routes = [
   // app-routing.module.ts
@@ -10,15 +11,19 @@ const routes: Routes = [
   { path: 'contact',loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) },
   { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule) },
 
-
   { 
-    path: 'not-found', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) 
+    path: 'book-page/successful/:username', 
+    component: SuccessfulComponent
   },
+  
   
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
   { path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) },  // Alapértelmezett útvonal beállítása
-  { path: '**', redirectTo: '/not-found' }  // Nem létező útvonalak kezelése
+  { path: '**', redirectTo: '/not-found' } , // Nem létező útvonalak kezelése
+  { 
+    path: 'not-found', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) 
+  },
 
 ];
 

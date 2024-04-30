@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Comment } from '../../../shared/models/Comment';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-page',
@@ -23,7 +24,7 @@ commentsForm = this.fb.group({
 });
 
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder, private router: Router){
 
   }
 
@@ -36,18 +37,15 @@ commentsForm = this.fb.group({
   }
 
   addComment(){
-    //todo: legyen egy 1-5 ig pontozó is
-    if(this.commentObject.username && this.commentObject.comment){
-      this.commentObject['date'] = new Date();
-
-      if(this.commentObject.stars) {
-        this.commentObject['stars'] = Number(this.commentObject.stars);
-      }
-      
-      this.comments.push({...this.commentObject});
-      this.commentObject = {};
+    if (this.commentsForm.valid) {
+      this.commentsForm.get('date')?.setValue(new Date());
+  
+      this.comments.push({...this.commentsForm.value});
+      this.router.navigateByUrl(`/book-page/successful/${this.commentsForm.get('username')?.value}`);
+      this.commentsForm.reset();  // Reset the form to clear fields after submission
     }
-
   }
+
+  
   
 }
