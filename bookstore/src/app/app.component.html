@@ -7,12 +7,14 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="secondary">
-      <button mat-icon-buttn>
-        <mat-icon>menu</mat-icon>
-      </button>
-      <div>BOOKSTORE</div>
-      <div>
-        <ul>
+      <div fxHide.gt-xs>
+        <button mat-icon-buttn>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div >BOOKSTORE</div>
+      <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
+        <ul fxLayout fxLayoutGap="20px" class="nav-items">
           <li><a routerLink="/login">Login</a></li>
           <li><a routerLink="signup">Register</a></li>
           <li><a routerLink="home">Home</a></li>
