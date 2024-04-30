@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -8,13 +8,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class MenuComponent implements OnInit{
 
   @Output() selectedPage: EventEmitter<string> = new EventEmitter();
+  @Input() currentPage: string = '';
 
   ngOnInit(): void {
     console.log('colled ngoninit')
   }
 
-  menuSwitch(pageValue: string){
-    this.selectedPage.emit(pageValue);
+  menuSwitch(){
+    this.selectedPage.emit(this.currentPage);
   }
 
 }
