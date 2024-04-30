@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class BookPageComponent implements OnInit{
 
 
-  commentObject: any = {};
+ // commentObject: any = {};
   comments: Array<any> = [];
 
   
@@ -40,7 +40,7 @@ commentsForm = this.fb.group({
     if (this.commentsForm.valid) {
       this.commentsForm.get('date')?.setValue(new Date());
   
-      this.comments.push({...this.commentsForm.value});
+      this.comments.push({...this.commentsForm.value as Comment});
       this.router.navigateByUrl(`/book-page/successful/${this.commentsForm.get('username')?.value}`);
       this.commentsForm.reset();  // Reset the form to clear fields after submission
     }

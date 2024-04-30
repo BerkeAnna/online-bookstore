@@ -13,7 +13,7 @@ import { DateFormatPipe } from '../../../shared/pipes/date-format.pipe';
     DateFormatPipe 
   ], 
   exports: [
-    BookPageComponent
+    BookPageComponent,
   ],
   imports: [
     CommonModule,
