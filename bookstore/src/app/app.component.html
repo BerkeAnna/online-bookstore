@@ -1,14 +1,14 @@
 
 
 <mat-sidenav-container>
-  <mat-sidenav>
-    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page"></app-menu>
+  <mat-sidenav #sidenav>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="secondary">
       <div fxHide.gt-xs>
-        <button mat-icon-buttn>
+        <button mat-icon-button (click)="onToogleSidenav(sidenav)">
           <mat-icon>menu</mat-icon>
         </button>
       </div>

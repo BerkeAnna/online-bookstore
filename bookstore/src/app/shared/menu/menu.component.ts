@@ -9,6 +9,7 @@ export class MenuComponent implements OnInit{
 
   @Output() selectedPage: EventEmitter<string> = new EventEmitter();
   @Input() currentPage: string = '';
+  @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter();
 
   ngOnInit(): void {
     console.log('colled ngoninit')
@@ -18,4 +19,8 @@ export class MenuComponent implements OnInit{
     this.selectedPage.emit(this.currentPage);
   }
 
+
+  close() {
+    this.onCloseSidenav.emit(true);
+  }
 }
