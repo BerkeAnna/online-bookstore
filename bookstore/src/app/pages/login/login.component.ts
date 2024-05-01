@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit{
             this.router.navigateByUrl('/home');
           }, error: (error) => {
             console.error(error);
+            this.loading= false;
           }, complete: () => {
             console.log('finally');
+            this.loading= false;
           }
         }
       );
