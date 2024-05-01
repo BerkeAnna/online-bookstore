@@ -53,6 +53,12 @@
 2024.04.30. 21:29
     9.vidi 24:55
 
+2024.05.01. 19:43
+    9. vidi 34
+
+2024.05.01. 20:08
+    9. vidi 40:44
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
