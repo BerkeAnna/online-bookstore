@@ -18,6 +18,24 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.book-card{
+  padding: 50px;
+}
+
+mat-card-header{
+  display: flex;
+    padding: 16px 16px 0;
+    justify-content: center;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+mat-card-content{
+  text-align: center;
+}
   
   .bookImage {
     width: 50%; // Adjust this to change the size of the images within their cells

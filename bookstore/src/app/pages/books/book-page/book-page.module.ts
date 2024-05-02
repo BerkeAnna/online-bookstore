@@ -5,6 +5,12 @@ import { BookPageRoutingModule } from './book-page-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BookPageComponent } from './book-page.component';
 import { DateFormatPipe } from '../../../shared/pipes/date-format.pipe';
+import { MatFormField, MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -19,7 +25,14 @@ import { DateFormatPipe } from '../../../shared/pipes/date-format.pipe';
     CommonModule,
     BookPageRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormField,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    FlexLayoutModule
     
     
   ]

@@ -4,6 +4,25 @@
 
 <div class="image-grid" *ngIf="categoryInput">
     <div *ngFor="let img of [].constructor(30)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{categoryInput.title}}</mat-card-title>
+        </mat-card-header>
+        
+        <mat-card-content>
+           
+            <h4>{{categoryInput.author}}</h4>
+            <img  [src]="'assets/' + categoryInput.id + '.jpg'" class="bookImage">
+            <h4>{{categoryInput.price}} $</h4>
+            <button class="buy-button">BUY</button>
+
+        </mat-card-content>
+
+    </mat-card>
+    
+    <!--
+</div>
+    <div *ngFor="let img of [].constructor(30)">
     <img  [src]="'assets/' + categoryInput.id + '.jpg'" class="bookImage">
     <h4>{{categoryInput.author}}</h4>
     <h3>{{categoryInput.title}}</h3>
@@ -11,3 +30,15 @@
     <button class="buy-button">BUY</button>
 </div>
 </div>
+-->
+<!---
+    <div class="image-grid" *ngIf="categoryInput">
+    <div *ngFor="let img of [].constructor(30)">
+    <img  [src]="'assets/' + categoryInput.id + '.jpg'" class="bookImage">
+    <h4>{{categoryInput.author}}</h4>
+    <h3>{{categoryInput.title}}</h3>
+    <h4>{{categoryInput.price}} $</h4>
+    <button class="buy-button">BUY</button>
+</div>
+</div>
+--->

@@ -7,6 +7,9 @@ import { ListComponent } from './list/list.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DateFormatPipe } from '../../shared/pipes/date-format.pipe';
+import { MatFormField, MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 
 // books.module.ts
@@ -24,7 +27,11 @@ import { DateFormatPipe } from '../../shared/pipes/date-format.pipe';
     CommonModule,
     BooksRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormField,
+    MatCardModule
   ]
 })
 export class BooksModule { }
