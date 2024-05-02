@@ -1,64 +1,132 @@
 <div class="book-card">
-    <mat-card fxLayout fxLayoutGap="20px">
-        <span fxFlex="1 1 50%">
-            <mat-card-header>
-                <mat-card-title >Book Title</mat-card-title>
-            </mat-card-header>
-            
-            <mat-card-content>
-                
-                
-                <div class="image">
-                    <img  [src]="'assets/Fantasy.jpg'" class="bookImage">
-                </div>
-                <h2>Author</h2>
-                <h3>description</h3>
-                
-            </mat-card-content>
-        </span>
-        <span fxFlex="1 1 50%">
-            <mat-card-actions>
+  <mat-card fxLayout="row wrap">
+    <div fxFlex="1 1 50%">
+      <mat-card-header>
+        <mat-card-title>Book Title</mat-card-title>
+      </mat-card-header>
 
-                
-                <form [formGroup]="commentsForm" (ngSubmit)="addComment()">
-                    <div>
-                        <mat-form-field>
-                            <mat-label for="userame">Username:</mat-label>
-                            <input matInput type="text" formControlName="username"/>
-                
-                        </mat-form-field>
-                        <div class="break"></div>
-                        <div >
-                            <mat-form-field >
-                                <mat-label for="stars">Stars:</mat-label>
-                                <mat-select formControlName="stars" id="stars">
-                                    <mat-option value="1">1</mat-option>
-                                    <mat-option value="2">2</mat-option>
-                                    <mat-option value="3">3</mat-option>
-                                    <mat-option value="4">4</mat-option>
-                                    <mat-option value="5">5</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                        </div>
-                        <div class="break"></div>
+      <mat-card-content>
+        <h2>Author</h2>
+        <p>
+          Where does it come from? Contrary to popular belief, Lorem Ipsum is
+          not simply random text. It has roots in a piece of classical Latin
+          literature from 45 BC, making it over 2000 years old. Richard
+          McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+          looked up one of the more obscure Latin words, consectetur, from a
+          Lorem Ipsum passage, and going through the cites of the word in
+          classical literature, discovered the undoubtable source. Lorem Ipsum
+          comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
+          Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+          This book is a treatise on the theory of ethics, very popular during
+          the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+          amet..", comes from a line in section 1.10.32. The standard chunk of
+          Lorem Ipsum used since the 1500s is reproduced below for those
+          interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+          Malorum" by Cicero are also reproduced in their exact original form,
+          accompanied by English versions from the 1914 translation by H.
+          Rackham. Where can I get some? There are many variations of passages
+          of Lorem Ipsum available, but the majority have suffered alteration in
+          some form, by injected humour, or randomised words which don't look
+          even slightly believable. If you are going to use a passage of Lorem
+          Ipsum, you need to be sure there isn't anything embarrassing hidden in
+          the middle of text. All the Lorem Ipsum generators on the Internet
+          tend to repeat predefined chunks as necessary, making this the first
+          true generator on the Internet. It uses a dictionary of over 200 Latin
+          words, combined with a handful of model sentence structures, to
+          generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
+          is therefore always free from repetition, injected humour, or
+          non-characteristic words etc.
+        </p>
+        <h4>5 $</h4>
+        <button mat-raised-button color="primary" type="submit">Buy</button>
+      </mat-card-content>
+    </div>
+    <div fxFlex="1 1 50%">
+      <mat-card-content>
+        <div class="image">
+          <img [src]="'assets/Fantasy.jpg'" class="bookImage" />
+        </div>
+      </mat-card-content>
+    </div>
+    <div fxFlex="1 1 50%">
+      <mat-card-actions>
+        <form class="comment-form" [formGroup]="commentsForm" (ngSubmit)="addComment()">
+          <div>
+            <mat-form-field>
+              <mat-label for="userame">Username:</mat-label>
+              <input matInput type="text" formControlName="username" />
+            </mat-form-field>
+            <div class="break"></div>
+            <div>
+              <mat-form-field>
+                <mat-label for="stars">Stars:</mat-label>
+                <mat-select formControlName="stars" id="stars">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                  <mat-option value="3">3</mat-option>
+                  <mat-option value="4">4</mat-option>
+                  <mat-option value="5">5</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="break"></div>
 
-                        <div>
-                            <mat-form-field>
-                                <mat-label for="comment">Comment: </mat-label>
-                                <textarea matInput rows="10" cols="50" formControlName="comment"></textarea>
-                            </mat-form-field>
-                        </div>
-                        <div class="break"></div>
-                        <div>
-                            <button mat-raised-button color="primary" type="submit" >SAVE</button>
-                        </div>
-                    </div>
-                </form>
-            </mat-card-actions>
-        </span>
-    </mat-card>
+            <div>
+              <mat-form-field>
+                <mat-label for="comment">Comment: </mat-label>
+                <textarea
+                  matInput
+                  rows="10"
+                  cols="50"
+                  formControlName="comment"
+                ></textarea>
+              </mat-form-field>
+            </div>
+            <div class="break"></div>
+            <div>
+              <button mat-raised-button color="primary" type="submit">
+                SAVE
+              </button>
+            </div>
+          </div>
+        </form>
+      </mat-card-actions>
+    </div>
+
+    <div fxFlex="50%">
+      <mat-card-content>
+        <h4>Comments</h4>
+        <p>
+          Where does it come from? Contrary to popular belief, Lorem Ipsum is
+          not simply random text. It has roots in a piece of classical Latin
+          literature from 45 BC, making it over 2000 years old. Richard
+          McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+          looked up one of the more obscure Latin words, consectetur, from a
+          Lorem Ipsum passage, and going through the cites of the word in
+          classical literature, discovered the undoubtable source. Lorem Ipsum
+          comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
+          Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+          This book is a treatise on the theory of ethics, very popular during
+          the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit
+          amet..", comes from a line in section 1.10.32. The standard chunk of
+          Lorem Ipsum used since the 1500s is reproduced below for those
+          interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+          Malorum" by Cicero are also reproduced in their exact original form,
+          accompanied by English versions from the 1914 translation by H.
+          Rackham. Where can I get some? There are many variations of passages
+          of Lorem Ipsum available, but the majority have suffered alteration in
+          some form, by injected humour, or randomised words which don't look
+          even slightly believable. If you are going to use a passage of Lorem
+          Ipsum, you need to be sure there isn't anything embarrassing hidden in
+          the middle of text. All the Lorem Ipsum generators on the Internet
+          tend to repeat predefined chunks as necessary, making this the first
+          true generator on the Internet. It uses a dictionary of over 200 Latin
+          words, combined with a handful of model sentence structures, to
+          generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum
+          is therefore always free from repetition, injected humour, or
+          non-characteristic words etc.
+        </p>
+      </mat-card-content>
+    </div>
+  </mat-card>
 </div>
-
-
-
-

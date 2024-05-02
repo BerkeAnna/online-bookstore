@@ -12,6 +12,12 @@
     height: 0;
 }
 
+.comment-form{
+  justify-content: center;
+  align-self: center;
+  width: 80%;
+}
+
 .image{
     display: flex;
     align-items: center;
@@ -35,6 +41,11 @@ mat-form-field{
 
 mat-card-content{
   text-align: center;
+}
+
+mat-card-actions{
+  text-align: center;
+  justify-content: center;
 }
   
   .bookImage {
