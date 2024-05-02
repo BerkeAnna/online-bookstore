@@ -21,12 +21,17 @@ $light-pink: rgb(243, 134, 178);
   width: 80%;
 }
 
-.image{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 50%;
+.image {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  width: 100%;             /* Takes full width of the container */
+}
+
+.bookImage {
+  width: 100%;   /* Full width of its container */
+  height: auto;  /* Maintain aspect ratio */
+  max-width: 300px; /* Set a max-width to prevent the image from being too large */
 }
 
 .book-card{
@@ -45,8 +50,11 @@ mat-form-field{
   width: 100%;
 }
 
-mat-card-content{
-  text-align: center;
+.mat-card-content {
+  display: flex;         /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  text-align: center;     /* Centers text */
 }
 
 mat-card-actions{
@@ -66,11 +74,11 @@ mat-card-actions{
   }
 
   .buy-button{
-    color:  rgb(0, 0, 0);
-    background-color: rgb(237, 149, 98);
-    font-weight: bold;
-    border-color:  rgb(237, 178, 186);
-    border-radius: 50px;
+    width: 100%; // Adjust this to change the size of the images within their cells
+    height: auto; // Maintains aspect ratio
+    max-height: 50px;
+    margin: auto; // Centers the image in the cell
+    justify-content: center;
   
   }
   
