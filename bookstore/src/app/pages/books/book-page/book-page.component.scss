@@ -26,6 +26,7 @@ $light-pink: rgb(243, 134, 178);
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    width: 50%;
 }
 
 .book-card{
@@ -54,9 +55,14 @@ mat-card-actions{
 }
   
   .bookImage {
-    width: 50%; // Adjust this to change the size of the images within their cells
+    width: 100%; // Adjust this to change the size of the images within their cells
     height: auto; // Maintains aspect ratio
     margin: auto; // Centers the image in the cell
+    justify-content: end;
+  }
+
+  .book-content{
+    padding-bottom: 100px;
   }
 
   .buy-button{
