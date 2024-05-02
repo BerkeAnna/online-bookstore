@@ -14,7 +14,7 @@
             <h4>{{categoryInput.author}}</h4>
             <img  [src]="'assets/' + categoryInput.id + '.jpg'" class="bookImage">
             <h4>{{categoryInput.price}} $</h4>
-            <button class="buy-button">BUY</button>
+            <button class="buy-button" (click)="viewMore(categoryInput)">MORE</button>
 
         </mat-card-content>
 

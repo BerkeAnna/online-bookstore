@@ -68,6 +68,9 @@
 2024.05.02. 13:03
     10.vidi
 
+2024.05.01. 14:45
+    alap átirányítás a listről a book-page-re, ha majd lesz rendes érték akkor id alapján
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás

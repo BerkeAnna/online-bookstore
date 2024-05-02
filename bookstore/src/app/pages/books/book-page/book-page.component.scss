@@ -68,6 +68,9 @@ mat-card-actions{
     margin: auto; // Centers the image in the cell
     justify-content: end;
   }
+  .title{
+    color: $dark-pink;
+  }
 
   .book-content{
     padding-bottom: 100px;
