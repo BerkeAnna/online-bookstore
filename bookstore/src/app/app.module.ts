@@ -23,6 +23,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatListModule } from '@angular/material/list';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -46,7 +51,12 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatIconModule,
     FlexLayoutModule,
-    MatListModule
+    MatListModule,
+    AngularFireModule,
+    provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:d49bd5a530766b0d5dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"})),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [
     provideClientHydration(),

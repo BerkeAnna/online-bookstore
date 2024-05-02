@@ -108,6 +108,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "bookstore:build:production",
+              "serveTarget": "bookstore:serve:production"
+            },
+            "development": {
+              "buildTarget": "bookstore:build:development",
+              "serveTarget": "bookstore:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
