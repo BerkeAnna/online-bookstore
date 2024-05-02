@@ -1,3 +1,6 @@
+$dark-pink:  rgb(242, 89, 151);
+$light-pink: rgb(243, 134, 178);
+
 .container {
     display: flex;
     align-items: center;
@@ -33,6 +36,8 @@ mat-card-header{
   display: flex;
     padding: 16px 16px 0;
     justify-content: center;
+    color: $dark-pink;
+    text-transform: uppercase;
 }
 
 mat-form-field{
@@ -69,7 +74,7 @@ mat-card-actions{
   }
 
   h1 {
-    color: rgb(237, 149, 98);
+    color: $dark-pink;
     text-shadow: 1px 1px black;
     text-align: center;
     margin: 0; 
