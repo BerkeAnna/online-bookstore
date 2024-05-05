@@ -29,6 +29,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,11 +54,12 @@ import { AngularFireModule } from '@angular/fire/compat';
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
-    AngularFireModule,
-    provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:d49bd5a530766b0d5dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"})),
+    AngularFireModule.initializeApp(environment.firebase),
+    //provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:d49bd5a530766b0d5dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:acb5806fd0e137e65dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"}))
   ],
   providers: [
     provideClientHydration(),

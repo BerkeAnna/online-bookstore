@@ -76,6 +76,20 @@
     firebase alapok oké -> login fv jön
     10.vidi 22:19
 
+
+2024.05.05. 112:20
+    bookstore-2 a neve firebasen
+    10 vidi 21:57
+
+2024.05.05. 13:21
+    10 36:30
+
+2024.05.05. 14:13
+    10 50:00
+
+2024.05.05. 17:20
+    11.v
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás

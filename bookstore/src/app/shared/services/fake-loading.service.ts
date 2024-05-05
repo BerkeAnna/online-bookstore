@@ -13,7 +13,7 @@ export class FakeLoadingService {
     return new Promise((resolve, reject) => {
       let i = 0;
       setTimeout(() => {
-        if (email === 'test@gmail.com' && password === '123') {
+        if (email === 'test@gmail.com' && password === '123456') {
           resolve(true);
         } else {
           reject(false);
@@ -30,7 +30,7 @@ export class FakeLoadingService {
         i++;
         // subscriber.next(i);
         if (i === 3) {
-          if (email === 'test@gmail.com' && password === '123') {
+          if (email === 'test@gmail.com' && password === '123456') {
             subscriber.next(true);
             subscriber.complete();
           } else {
