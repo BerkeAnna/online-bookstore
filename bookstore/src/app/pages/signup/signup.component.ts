@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../../shared/services/auth.service';
 import e from 'express';
+import { User } from '../../shared/models/User';
+import { UserService } from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -21,7 +23,7 @@ export class SignupComponent implements OnInit{
     })
   })
 
-  constructor(private location : Location, private authSevice: AuthService){
+  constructor(private location : Location, private authSevice: AuthService, private userService: UserService){
 
   }
   
@@ -33,6 +35,20 @@ export class SignupComponent implements OnInit{
     console.log(this.signUpForm.value);
     this.authSevice.signup(this.signUpForm.get('email')?.value as string, this.signUpForm.get('password')?.value as string).then(cred => {
       console.log(cred);
+      const user: User = {
+        id: cred.user?.uid as string,
+        email: this.signUpForm.get('email')?.value as string,
+        password: this.signUpForm.get('password')?.value as string,
+        name: {
+          firstname: this.signUpForm.get('name.firstname')?.value as string,
+          lastname: this.signUpForm.get('name.lastname')?.value as string
+        }
+      };
+      this.userService.create(user).then(_ => {
+        console.log('added suc.')
+      }).catch(error => {
+        console.error(error)
+      })
     }).catch(error => {
       console.error(error)
     })
