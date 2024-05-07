@@ -93,9 +93,21 @@
 2024.05.05. 19:13
     11.v 28:20
 
+2024.05.05. 20.09
+    11.v 35.44
+
+2024.05.05. 20:35
+    11.v 40:00
+
+2024.05.05. 42:52 --- nem tölti be a kéept
+
+2024.05.06. 9:40
+    nem tölti be a képet a book oldalon, ahol firebaseből hívja(?) a books on asssets mappából oké
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
 - buy helyett more - > mint a sucesses izét, úgy vezesse át
 - 8. vidi services
 - .env 27. perc 11-es vidi
+- krimit kivenni
