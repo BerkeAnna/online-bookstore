@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Comment } from '../../../shared/models/Comment';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from '../../../shared/services/image.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class BookPageComponent implements OnInit{
  // commentObject: any = {};
   comments: Array<Comment> = [];
   imageUrl?: string;
+  book: any;
 
   
   // TypeScript Code in your Component
@@ -27,17 +28,24 @@ export class BookPageComponent implements OnInit{
   });
 
 
-  constructor(private fb: FormBuilder, private router: Router, private imageService: ImageService){
+  constructor(private fb: FormBuilder, private router: Router, private imageService: ImageService, private route: ActivatedRoute){
 
   }
 
   ngOnInit(): void {
-    this.loadImage();
+    this.route.queryParams.subscribe(params => {
+      this.book = {
+        id: params['id'],
+        title: params['title'],
+        author: params['author']
+      };
+      this.loadImage(this.book.id);
+    });
   }
 
-  loadImage(): void {
-    this.imageService.getImage('images/YoungAdult.jpg').subscribe(url => {
-      this.imageUrl = url;
+  loadImage(imageUrl: string): void {
+    this.imageService.getImage(`images/${imageUrl}.jpg`).subscribe(url => {
+      this.book.imageUrl = url;  // Frissítsd az imageUrl-t, ha szükséges
     });
   }
 

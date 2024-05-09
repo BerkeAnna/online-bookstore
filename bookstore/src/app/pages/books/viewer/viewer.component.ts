@@ -38,7 +38,8 @@ export class ViewerComponent implements OnInit{
   }
 
   viewMore(book: any) {
-    this.router.navigateByUrl('/book-page');
+    this.router.navigate(['/book-page'], { queryParams: { id: book.id,  title: book.title, author: book.author } });
   }
+  
 
 }

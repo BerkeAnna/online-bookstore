@@ -89,6 +89,10 @@ mat-card-actions{
     text-align: center;
     margin: 0; // Removes default margin to align text properly within the cell
   }
+  mat-card-subtitle{
+    text-align: center;
+    margin: 0;
+  }
 
   h1 {
     color: $dark-pink;

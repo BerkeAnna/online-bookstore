@@ -2,11 +2,11 @@
   <mat-card fxLayout="row wrap">
     <div fxFlex="1 1 70%" class="book-content">
       <mat-card-header>
-        <mat-card-title>Book Title</mat-card-title>
+        <mat-card-title>{{ book.title }}</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
-        <h2>Author</h2>
+        <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
         <p>
           Where does it come from? Contrary to popular belief, Lorem Ipsum is
           not simply random text. It has roots in a piece of classical Latin
@@ -73,7 +73,8 @@
         <div class="image">
           <!--<img [src]="'assets/Fantasy.jpg'" class="bookImage" alt="Book Image" /> -->
           <div class="image">
-            <img [src]="imageUrl" class="bookImage" alt="Book Image" />
+            <img [src]="book.imageUrl" class="bookImage" alt="Book Image" />
+  
           </div>
           
         </div>
