@@ -104,6 +104,10 @@
 2024.05.06. 9:40
     nem tölti be a képet a book oldalon, ahol firebaseből hívja(?) a books on asssets mappából oké
 
+2024.05.09. 18:40
+    frissül a vieweren a kép
+    átkötés viewer - page
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás

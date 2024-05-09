@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { ImageService } from '../../../shared/services/image.service';
 
 @Component({
   selector: 'app-viewer',
@@ -9,13 +10,31 @@ import { Router } from '@angular/router';
 export class ViewerComponent implements OnInit{
 
   @Input() categoryInput: any;
+  imageUrl?: string;
 
 
-  constructor(private router: Router){
+  constructor(private router: Router, private imageService: ImageService){
 
   }
 
   ngOnInit(): void {
+    this.loadImage();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // Check if categoryInput has been changed
+    if (changes['categoryInput']) {
+      this.loadImage();
+    }
+  }
+
+  loadImage(): void {
+    if (this.categoryInput && this.categoryInput.id) {
+      this.imageService.getImage(`images/${this.categoryInput.id}.jpg`).subscribe(url => {
+        console.log('id:' + this.categoryInput.id);
+        this.imageUrl = url;
+      });
+    }
   }
 
   viewMore(book: any) {
