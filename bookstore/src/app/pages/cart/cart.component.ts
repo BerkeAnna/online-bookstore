@@ -1,10 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrl: './cart.component.scss'
+  styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
+  items: any[] = [];
 
+  constructor(private cartService: CartService) {}
+
+  ngOnInit(): void {
+    this.items = this.cartService.getItems();
+    console.log('Cart items:', this.items); // Debugging the fetched items
+}
+
+
+  placeOrder(): void {
+    // Rendelés leadása logikája
+  }
 }

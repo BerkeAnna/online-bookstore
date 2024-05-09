@@ -65,7 +65,8 @@
           non-characteristic words etc.
         </p>
         <h4>5 $</h4>
-        <button mat-raised-button class="buy-button" color="primary" type="submit">Buy</button>
+        <button mat-raised-button class="buy-button" color="primary" (click)="addToCart(book)">Buy</button>
+
       </mat-card-content>
     </div>
     <div fxFlex="1 1 30%">

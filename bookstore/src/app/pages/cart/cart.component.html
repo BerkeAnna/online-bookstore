@@ -1,1 +1,51 @@
-<p>cart works!</p>
+
+<div class="main_component">
+<table *ngIf="items.length > 0; else noItemsTemplate">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of items">
+      <td>{{ item.title }}</td>
+      <td>{{ item.author }}</td>
+      <td>{{ item.price }} $</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noItemsTemplate>
+  <p>No items in the cart.</p>
+</ng-template>
+
+
+  <div class="div-flex">
+      <h1>Enter your data for the order </h1>
+      <form>
+      <!--  <mat-form-field>
+          <mat-label>Name:</mat-label>
+          <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+          <mat-form-field>
+              <mat-label>Bank account:</mat-label>
+              <input matInput type="text" formControlName="bankaccount" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Address:</mat-label>
+            <input matInput type="text" formControlName="address" />
+          </mat-form-field>
+          -->
+          <h1>Form .... in process</h1>
+          <div >
+              <div >
+                  <button mat-raised-button color="primary" type="order" >Order</button>
+              </div>
+          </div>
+
+      </form>
+  </div>
+</div>
+

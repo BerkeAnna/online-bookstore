@@ -3,6 +3,7 @@ import { Comment } from '../../../shared/models/Comment';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from '../../../shared/services/image.service';
+import { CartService } from '../../../shared/services/cart.service';
 
 @Component({
   selector: 'app-book-page',
@@ -28,20 +29,28 @@ export class BookPageComponent implements OnInit{
   });
 
 
-  constructor(private fb: FormBuilder, private router: Router, private imageService: ImageService, private route: ActivatedRoute){
-
-  }
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router, 
+    private imageService: ImageService, 
+    private route: ActivatedRoute,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-      this.book = {
-        id: params['id'],
-        title: params['title'],
-        author: params['author']
-      };
-      this.loadImage(this.book.id);
+        console.log("All query params:", params);
+        console.log("Price param:", params['price']);
+        this.book = {
+            id: params['id'],
+            title: params['title'],
+            author: params['author'],
+            price: +params['price']  // Ensure this is a number
+        };
+        this.loadImage(this.book.id);
     });
-  }
+}
+
 
   loadImage(imageUrl: string): void {
     this.imageService.getImage(`images/${imageUrl}.jpg`).subscribe(url => {
@@ -69,6 +78,12 @@ export class BookPageComponent implements OnInit{
       }
     }
   }
+
+  addToCart(book: any) {
+    this.cartService.addItem(book);
+    this.router.navigate(['/cart']);
+}
+
 
   
   

@@ -108,6 +108,9 @@
     frissül a vieweren a kép
     átkötés viewer - page
 
+2024.05.09. 19:35
+    cart jön. buyról átir. megvan
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
