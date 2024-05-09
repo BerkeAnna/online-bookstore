@@ -30,6 +30,7 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
 
 import { environment } from '../environments/environment';
+import { OrderComponent } from './pages/cart/order/order.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { environment } from '../environments/environment';
     //HomeComponent,
     //ContactComponent,
     MenuComponent,
+    OrderComponent,
     //CartComponent,
     //DateFormatPipe,
     //BookPageComponent

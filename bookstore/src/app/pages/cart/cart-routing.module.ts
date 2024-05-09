@@ -5,6 +5,9 @@ import { CartComponent } from './cart.component';
 const routes: Routes = [
   {
     path: '', component: CartComponent
+  },
+  {
+    path: 'successful', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) 
   }
 ];
 

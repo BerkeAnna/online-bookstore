@@ -111,6 +111,14 @@
 2024.05.09. 19:35
     cart jön. buyról átir. megvan
 
+
+2024.05.09. 22:12
+    rendelési adatok jönnek
+
+
+024.05.09. 22.58
+    rendelési adatok jönnek - success page
+
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
 - 1-5ig pontzás
@@ -118,3 +126,4 @@ todo:
 - 8. vidi services
 - .env 27. perc 11-es vidi
 - krimit kivenni
+- commenthez hasonló rendelés
