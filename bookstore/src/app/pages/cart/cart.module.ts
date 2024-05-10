@@ -7,10 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+//import { SuccessfullyorderComponent } from './successfullyorder/successfullyorder.component';
 
 @NgModule({
   declarations: [
-    CartComponent
+    CartComponent,
+   // SuccessfullyorderComponent
   ],
   imports: [
     CommonModule,
