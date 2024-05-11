@@ -17,17 +17,17 @@ export class UserService {
   create( user: User){
       return this.afs.collection<User>(this.collectionName).doc(user.id).set(user); 
   }
-
-  getAll(){
-
+  getAll() {
+    return this.afs.collection<User>(this.collectionName).valueChanges();
   }
-
-  update(){
-
+  
+  update(userId: string, userData: Partial<User>) {
+    return this.afs.collection<User>(this.collectionName).doc(userId).update(userData);
   }
-
-  delete(){
-
+  
+  delete(userId: string) {
+    return this.afs.collection<User>(this.collectionName).doc(userId).delete();
   }
+  
 
 }

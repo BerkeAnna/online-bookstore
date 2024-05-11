@@ -119,11 +119,16 @@
 024.05.09. 22.58
     rendelési adatok jönnek - success page
 
+2024.05.11. 14:26
+    -most betölti a commentet, de nem marad ott. :D a success átirányítás ki van kommentezve 
+
 todo: 
-- comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről
+- comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről!!!!
 - 1-5ig pontzás
 - buy helyett more - > mint a sucesses izét, úgy vezesse át
 - 8. vidi services
 - .env 27. perc 11-es vidi
 - krimit kivenni
 - commenthez hasonló rendelés
+- pipe hazsnálata a rendelésnél - időt kiírja
+- book és cart/successful oldal auth gard

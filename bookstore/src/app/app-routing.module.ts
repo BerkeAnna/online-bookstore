@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SuccessfulComponent } from './pages/books/book-page/successful/successful.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { SuccessfullyorderComponent } from './pages/cart/successfullyorder/successfullyorder.component';
+import { OrderGuard } from './shared/services/order.guard';
 
 const routes: Routes = [
   // app-routing.module.ts
@@ -17,6 +19,9 @@ const routes: Routes = [
   { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),
   canActivate: [AuthGuard]
    },
+
+   { path: 'cart/successful', component: SuccessfullyorderComponent, canActivate: [OrderGuard] },
+
 
   { 
     path: 'book-page/successful/:username', 

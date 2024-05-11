@@ -73,7 +73,7 @@ export class BookPageComponent implements OnInit{
         this.commentsForm.get('date')?.setValue(new Date());
     
         this.comments.push({...this.commentsForm.value as Comment});
-        this.router.navigateByUrl(`/book-page/successful/${this.commentsForm.get('username')?.value}`);
+       // this.router.navigateByUrl(`/book-page/successful/${this.commentsForm.get('username')?.value}`);
         this.commentsForm.reset();  // Reset the form to clear fields after submission
       }
     }
