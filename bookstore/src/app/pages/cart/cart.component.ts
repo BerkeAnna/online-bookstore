@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  displayedColumns: string[] = ['title', 'author', 'price'];
+  dataSource = []; 
   items: any[] = [];
   OrderForm = new FormGroup({
     bankAccount: new FormControl(''),

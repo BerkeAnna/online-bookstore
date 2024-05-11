@@ -15,7 +15,7 @@ export class BookPageComponent implements OnInit {
   comments: Comment[] = [];
   imageUrl?: string;
   book: any;
-  bookId!: string;  // Using definite assignment assertion
+  bookId!: string;  
 
   commentsForm = this.fb.group({
     username: ['', [Validators.required]],
@@ -88,4 +88,7 @@ export class BookPageComponent implements OnInit {
     this.cartService.addItem(book);
     this.router.navigate(['/cart']);
   }
+
+ 
+  
 }

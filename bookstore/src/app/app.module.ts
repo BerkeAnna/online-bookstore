@@ -28,6 +28,10 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { AngularFireModule } from '@angular/fire/compat';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 import { environment } from '../environments/environment';
 import { OrderComponent } from './pages/cart/order/order.component';
@@ -56,6 +60,11 @@ import { OrderComponent } from './pages/cart/order/order.component';
     MatIconModule,
     FlexLayoutModule,
     MatListModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    
     AngularFireModule.initializeApp(environment.firebase),
     //provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:d49bd5a530766b0d5dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"})),
     provideAuth(() => getAuth()),
