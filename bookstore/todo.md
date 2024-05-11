@@ -119,6 +119,7 @@
 024.05.09. 22.58
     rendelési adatok jönnek - success page
 
+
 2024.05.11. 14:26
     -most betölti a commentet, de nem marad ott. :D a success átirányítás ki van kommentezve 
     - a pipeot hozzáadni a kommenthez, hogy jó legyen a lista
