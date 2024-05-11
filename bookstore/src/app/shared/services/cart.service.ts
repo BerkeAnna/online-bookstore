@@ -19,7 +19,7 @@ getItems(): any[] {
 }
 
 
-  clearCart(): void {
-    this.items = [];
-  }
+clearCart(): void {
+  this.items = [];  // Clear the cart array
+}
 }

@@ -28,9 +28,16 @@ export class CartComponent implements OnInit {
 
   placeOrder(): void {
     if (this.items.length > 0) {
-      this.router.navigate(['/cart/successful']); // Csak akkor navigál, ha van tartalom a kosárban
+      // Assume all processing and validation of order happens here
+
+      // Call to clear the cart
+      this.cartService.clearCart();
+
+      // Redirect to the order successful page
+      this.router.navigate(['/cart/successful']).then(() => {
+      });
     } else {
-      alert('Your cart is empty!'); // Esetleges üzenet, ha a kosár üres
+      alert('Your cart is empty!');  // Optionally handle the empty cart case
     }
   }
 }

@@ -17,7 +17,8 @@ export class OrderGuard implements CanActivate {
     if (items.length > 0) {
       return of(true);
     } else {
-      return of(this.router.createUrlTree(['/cart'])); // Ha nincs elem, navigálj vissza a kosár oldalra
+      // Redirect to the books page if the cart is empty
+      return of(this.router.createUrlTree(['/books'])); // Adjust this to your books listing page
     }
   }
 }
