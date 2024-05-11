@@ -1,90 +1,91 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Comment } from '../../../shared/models/Comment';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from '../../../shared/services/image.service';
 import { CartService } from '../../../shared/services/cart.service';
+import { CommentService } from '../../../shared/services/comment.service';
+import { Comment } from '../../../shared/models/Comment';
 
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
-  styleUrl: './book-page.component.scss'
+  styleUrls: ['./book-page.component.scss'] // Fixed typo in 'styleUrls'
 })
-export class BookPageComponent implements OnInit{
-
- // commentObject: any = {};
-  comments: Array<Comment> = [];
+export class BookPageComponent implements OnInit {
+  comments: Comment[] = [];
   imageUrl?: string;
   book: any;
+  bookId!: string;  // Using definite assignment assertion
 
-  
-  // TypeScript Code in your Component
-  commentsForm = this.createForm({
-    id: '',
-    bookid: '',
-    username: '',
-    stars: 0,    // Ensure this is intended to be a string; otherwise, consider setting it as a number
-    comment: '',
-    date: new Date()
+  commentsForm = this.fb.group({
+    username: ['', [Validators.required]],
+    stars: [0, [Validators.required]],
+    comment: ['', [Validators.required, Validators.maxLength(500), Validators.minLength(10)]],
+    date: [new Date()]  // Default to current date, adjust if necessary
   });
-
 
   constructor(
     private fb: FormBuilder, 
     private router: Router, 
     private imageService: ImageService, 
     private route: ActivatedRoute,
-    private cartService: CartService
+    private cartService: CartService,
+    private commentService: CommentService
   ) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
-        console.log("All query params:", params);
-        console.log("Price param:", params['price']);
-        this.book = {
-            id: params['id'],
-            title: params['title'],
-            author: params['author'],
-            price: +params['price']  // Ensure this is a number
-        };
-        this.loadImage(this.book.id);
+      this.book = {
+        id: params['id'],
+        title: params['title'],
+        author: params['author'],
+        price: +params['price']
+      };
+      this.bookId = this.book.id; // Assuming the title "Fantasy" is what you want to filter on
+      this.loadImage(this.book.id);
+      this.loadComments();  // Load comments for the book
     });
-}
-
+  }
 
   loadImage(imageUrl: string): void {
     this.imageService.getImage(`images/${imageUrl}.jpg`).subscribe(url => {
-      this.book.imageUrl = url;  // Frissítsd az imageUrl-t, ha szükséges
+      this.book.imageUrl = url;
     });
   }
 
-  createForm(model: Comment){
-    let formGroup=  this.fb.group(model);
-    formGroup.get('username')?.addValidators([Validators.required]);
-    formGroup.get('comment')?.addValidators([Validators.required, Validators.maxLength(500), Validators.minLength(10)]);
-    formGroup.get('stars')?.addValidators([Validators.required]);
-    return formGroup;
-  }
-
-  addComment(){
-    if(this.commentsForm.valid){
-      
-      if (this.commentsForm.valid) {
-        this.commentsForm.get('date')?.setValue(new Date());
-    
-        this.comments.push({...this.commentsForm.value as Comment});
-       // this.router.navigateByUrl(`/book-page/successful/${this.commentsForm.get('username')?.value}`);
-        this.commentsForm.reset();  // Reset the form to clear fields after submission
-      }
+  addComment(): void {
+    if (this.commentsForm.valid) {
+      const formValue = this.commentsForm.getRawValue(); // Use getRawValue() to ensure all values are retrieved
+      const newComment: Omit<Comment, 'id'> = {
+        bookid: this.bookId,
+        username: formValue.username ?? '',
+        stars: formValue.stars ?? 0,
+        comment: formValue.comment ?? '',
+        date: formValue.date ?? new Date()
+      };
+  
+      this.commentService.addComment(newComment).then(docRef => {
+        const fullComment: Comment = {
+          ...newComment,
+          id: docRef.id
+        };
+        this.comments.push(fullComment);
+        this.commentsForm.reset();
+      }).catch(error => {
+        console.error("Failed to add comment: ", error);
+      });
     }
   }
+  
+  
+  loadComments(): void {
+    this.commentService.getComments(this.bookId).subscribe(comments => {
+      this.comments = comments;
+    });
+  }
 
-  addToCart(book: any) {
+  addToCart(book: any): void {
     this.cartService.addItem(book);
     this.router.navigate(['/cart']);
-}
-
-
-  
-  
+  }
 }

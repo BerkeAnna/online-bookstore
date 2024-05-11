@@ -1,17 +1,25 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import firebase from 'firebase/compat/app'; // Ensure Firebase is imported to access Timestamp type
 
 @Pipe({
   name: 'dateFormat'
 })
 export class DateFormatPipe implements PipeTransform {
 
-  transform(value: Date | string): string {
+  transform(value: Date | string | firebase.firestore.Timestamp): string {
     if (!value) {
       return '';
     }
 
-    // Ensure value is a Date object
-    let date = value instanceof Date ? value : new Date(value);
+    // Check if value is a Firestore Timestamp and convert
+    let date: Date;
+    if (value instanceof firebase.firestore.Timestamp) {
+      date = value.toDate();
+    } else if (value instanceof Date) {
+      date = value;
+    } else {
+      date = new Date(value);
+    }
 
     // Helper function to add leading zeros
     const pad = (num: number) => num < 10 ? '0' + num : num.toString();

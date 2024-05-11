@@ -121,6 +121,14 @@
 
 2024.05.11. 14:26
     -most betölti a commentet, de nem marad ott. :D a success átirányítás ki van kommentezve 
+    - a pipeot hozzáadni a kommenthez, hogy jó legyen a lista
+
+
+2024.05.11. 17:57
+    -komment oke
+    - pipe oke
+     kell guard a carthoz
+     - kell responsive
 
 todo: 
 - comment készítés videóban: 5. vidi 39. perc -> majd kell egy bookpage és oda lehessen értékelést írni a könyvről!!!!

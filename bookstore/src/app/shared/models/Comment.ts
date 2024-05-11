@@ -1,8 +1,9 @@
 export interface Comment {
-    id: string,
-    bookid: string,
+    id?: string;
+    bookid: string;
     username: string;
-    stars?: number;
+    stars: number;
     comment: string;
     date: Date;
-}
+  }
+  
