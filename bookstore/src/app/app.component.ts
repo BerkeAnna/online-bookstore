@@ -50,8 +50,8 @@ export class AppComponent implements OnInit{
     this.router.navigateByUrl(selectedPage);
   }
 
-  onToogleSidenav(sidenav: MatSidenav){
-      sidenav.toggle();
+  onToggleSidenav(sidenav: MatSidenav) {
+    sidenav.toggle();
   }
 
   onClose(event: any, sidenav: MatSidenav){
