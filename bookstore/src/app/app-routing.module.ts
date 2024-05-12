@@ -6,7 +6,6 @@ import { SuccessfullyorderComponent } from './pages/cart/successfullyorder/succe
 import { OrderGuard } from './shared/services/order.guard';
 
 const routes: Routes = [
-  // app-routing.module.ts
   { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: 'book-page', loadChildren: () => import('./pages/books/book-page/book-page.module').then(m => m.BookPageModule),
   canActivate: [AuthGuard]
