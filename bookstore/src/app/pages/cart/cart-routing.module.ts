@@ -6,9 +6,7 @@ const routes: Routes = [
   {
     path: '', component: CartComponent
   },
- /* {
-    path: 'successful', loadChildren: () => import('./order/order.module').then(m => m.OrderModule) 
-  },*/
+ 
   { path: 'successful', loadChildren: () => import('./successfullyorder/successfullyorder.module').then(m => m.SuccessfullyorderModule) }
 ];
 

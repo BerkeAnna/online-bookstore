@@ -51,10 +51,10 @@ mat-form-field{
 }
 
 .mat-card-content {
-  display: flex;         /* Enables flexbox */
-  justify-content: center; /* Centers horizontally */
-  align-items: center;    /* Centers vertically */
-  text-align: center;     /* Centers text */
+  display: flex;        
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;    
 }
 
 mat-card-actions{
@@ -63,9 +63,9 @@ mat-card-actions{
 }
   
   .bookImage {
-    width: 100%; // Adjust this to change the size of the images within their cells
-    height: auto; // Maintains aspect ratio
-    margin: auto; // Centers the image in the cell
+    width: 100%; 
+    height: auto; 
+    margin: auto; 
     justify-content: end;
   }
   .title{
@@ -77,17 +77,17 @@ mat-card-actions{
   }
 
   .buy-button{
-    width: 100%; // Adjust this to change the size of the images within their cells
-    height: auto; // Maintains aspect ratio
+    width: 100%; 
+    height: auto; 
     max-height: 50px;
-    margin: auto; // Centers the image in the cell
+    margin: auto; 
     justify-content: center;
   
   }
   
   h2, h3, h4 {
     text-align: center;
-    margin: 0; // Removes default margin to align text properly within the cell
+    margin: 0; 
   }
   mat-card-subtitle{
     text-align: center;

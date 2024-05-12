@@ -35,22 +35,6 @@ export class LoginComponent implements OnInit{
 
 
 
-   /* this.loadingObservation = this.loadingService.loadingWithObservable(this.email.value as string, this.password.value as string)
-    this.loadingSubscription = this.loadingObservation
-      .subscribe(
-        {
-          next: (data: boolean) => {
-            this.router.navigateByUrl('/home');
-          }, error: (error) => {
-            console.error(error);
-            this.loading= false;
-          }, complete: () => {
-            console.log('finally');
-            this.loading= false;
-          }
-        }
-      );
-      */
 
       this.authService.login(this.email.value  as string, this.password.value  as string).then(cred =>{
         console.log(cred);

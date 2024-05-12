@@ -22,7 +22,6 @@ export class ViewerComponent implements OnInit{
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // Check if categoryInput has been changed
     if (changes['categoryInput']) {
       this.loadImage();
     }

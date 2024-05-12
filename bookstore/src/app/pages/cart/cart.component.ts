@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CartService } from '../../shared/services/cart.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { CartService } from '../../shared/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,8 +10,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class CartComponent implements OnInit {
   displayedColumns: string[] = ['title', 'author', 'price'];
-  dataSource = []; 
+  dataSource = [];
   items: any[] = [];
+  total: number = 0;  // Total price of the items
   OrderForm = new FormGroup({
     bankAccount: new FormControl(''),
     address: new FormControl(''),
@@ -26,20 +27,19 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+    this.calculateTotal();
+  }
+
+  calculateTotal(): void {
+    this.total = this.items.reduce((acc, item) => acc + item.price, 0);
   }
 
   placeOrder(): void {
     if (this.items.length > 0) {
-      // Assume all processing and validation of order happens here
-
-      // Call to clear the cart
       this.cartService.clearCart();
-
-      // Redirect to the order successful page
-      this.router.navigate(['/cart/successful']).then(() => {
-      });
+      this.router.navigate(['/cart/successful']);
     } else {
-      alert('Your cart is empty!');  // Optionally handle the empty cart case
+      alert('Your cart is empty!');
     }
   }
 }

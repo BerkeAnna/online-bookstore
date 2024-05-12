@@ -5,6 +5,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import e from 'express';
 import { User } from '../../shared/models/User';
 import { UserService } from '../../shared/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -23,7 +24,7 @@ export class SignupComponent implements OnInit{
     })
   })
 
-  constructor(private location : Location, private authSevice: AuthService, private userService: UserService){
+  constructor(private location : Location, private authService: AuthService, private userService: UserService, private router: Router){
 
   }
   
@@ -32,27 +33,34 @@ export class SignupComponent implements OnInit{
   }
 
   onSubmit() {
-    console.log(this.signUpForm.value);
-    this.authSevice.signup(this.signUpForm.get('email')?.value as string, this.signUpForm.get('password')?.value as string).then(cred => {
-      console.log(cred);
-      const user: User = {
-        id: cred.user?.uid as string,
-        email: this.signUpForm.get('email')?.value as string,
-        password: this.signUpForm.get('password')?.value as string,
-        name: {
-          firstname: this.signUpForm.get('name.firstname')?.value as string,
-          lastname: this.signUpForm.get('name.lastname')?.value as string
-        }
-      };
-      this.userService.create(user).then(_ => {
-        console.log('added suc.')
+    const email = this.signUpForm.get('email')?.value as string;
+    const password = this.signUpForm.get('password')?.value as string;
+    
+    if (this.signUpForm.get('password')?.value === this.signUpForm.get('rePassword')?.value) {
+      this.authService.signup(email, password).then(cred => {
+        const user: User = {
+          id: cred.user?.uid as string,
+          email: email,
+          password: password,
+          name: {
+            firstname: this.signUpForm.get('name.firstname')?.value as string,
+            lastname: this.signUpForm.get('name.lastname')?.value as string
+          }
+        };
+        this.userService.create(user).then(() => {
+          console.log('User added successfully');
+          this.router.navigate(['/home']);  // Sikeres regisztráció utáni átirányítás
+        }).catch(error => {
+          console.error('Failed to add user:', error);
+        });
       }).catch(error => {
-        console.error(error)
-      })
-    }).catch(error => {
-      console.error(error)
-    })
+        console.error('Signup failed:', error);
+      });
+    } else {
+      console.error('Passwords do not match');
+    }
   }
+
 
   goBack(){
     this.location.back();

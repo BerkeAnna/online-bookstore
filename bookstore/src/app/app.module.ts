@@ -64,6 +64,7 @@ import { OrderComponent } from './pages/cart/order/order.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    FlexLayoutModule,
     
     AngularFireModule.initializeApp(environment.firebase),
     //provideFirebaseApp(() => initializeApp({"projectId":"bookstore-11eb4","appId":"1:245340475210:web:d49bd5a530766b0d5dbbb3","storageBucket":"bookstore-11eb4.appspot.com","apiKey":"AIzaSyDZTeXsX0nSIqa7cfn_bpdOWCUEhqfqUlU","authDomain":"bookstore-11eb4.firebaseapp.com","messagingSenderId":"245340475210"})),

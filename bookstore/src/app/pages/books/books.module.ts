@@ -12,7 +12,6 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 
 
-// books.module.ts
 
 @NgModule({
   declarations: [
@@ -21,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
     ViewerComponent
   ],
   exports: [
-    BooksComponent  // Ensure that BooksComponent is exported
+    BooksComponent  
   ],
   imports: [
     CommonModule,

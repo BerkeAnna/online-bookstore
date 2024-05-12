@@ -9,7 +9,7 @@ import { Comment } from '../../../shared/models/Comment';
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
-  styleUrls: ['./book-page.component.scss'] // Fixed typo in 'styleUrls'
+  styleUrls: ['./book-page.component.scss'] 
 })
 export class BookPageComponent implements OnInit {
   comments: Comment[] = [];
@@ -21,7 +21,7 @@ export class BookPageComponent implements OnInit {
     username: ['', [Validators.required]],
     stars: [0, [Validators.required]],
     comment: ['', [Validators.required, Validators.maxLength(500), Validators.minLength(10)]],
-    date: [new Date()]  // Default to current date, adjust if necessary
+    date: [new Date()]  
   });
 
   constructor(
@@ -41,21 +41,19 @@ export class BookPageComponent implements OnInit {
         author: params['author'],
         price: +params['price']
       };
-      this.bookId = this.book.id; // Assuming the title "Fantasy" is what you want to filter on
+      
+      console.log(this.book);
+      this.bookId = this.book.id;
       this.loadImage(this.book.id);
-      this.loadComments();  // Load comments for the book
+      this.loadComments();  
     });
   }
 
-  loadImage(imageUrl: string): void {
-    this.imageService.getImage(`images/${imageUrl}.jpg`).subscribe(url => {
-      this.book.imageUrl = url;
-    });
-  }
+
 
   addComment(): void {
     if (this.commentsForm.valid) {
-      const formValue = this.commentsForm.getRawValue(); // Use getRawValue() to ensure all values are retrieved
+      const formValue = this.commentsForm.getRawValue(); 
       const newComment: Omit<Comment, 'id'> = {
         bookid: this.bookId,
         username: formValue.username ?? '',
@@ -83,12 +81,32 @@ export class BookPageComponent implements OnInit {
       this.comments = comments;
     });
   }
+  onRatingChange(rating: number) {
+    if (rating > 0) {
+      this.loadCommentsByRating(rating);
+    } else {
+      this.loadComments(); // Load all comments if no specific rating is selected
+    }
+  }
+  
+  loadCommentsByRating(rating: number): void {
+    this.commentService.getCommentsByRating(this.bookId, rating).subscribe(comments => {
+      this.comments = comments;
+    });
+  }
+  
+
+  
 
   addToCart(book: any): void {
     this.cartService.addItem(book);
     this.router.navigate(['/cart']);
   }
-
+  loadImage(imageUrl: string): void {
+    this.imageService.getImage(`images/${imageUrl}.jpg`).subscribe(url => {
+      this.book.imageUrl = url;
+    });
+  }
  
   
 }

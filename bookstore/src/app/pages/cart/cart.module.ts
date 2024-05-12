@@ -8,12 +8,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-//import { SuccessfullyorderComponent } from './successfullyorder/successfullyorder.component';
 
 @NgModule({
   declarations: [
-    CartComponent,
-   // SuccessfullyorderComponent
+    CartComponent
   ],
   imports: [
     CommonModule,

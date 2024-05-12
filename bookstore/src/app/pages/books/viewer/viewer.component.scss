@@ -21,51 +21,54 @@ mat-card-header{
     color: $dark-pink;
 }
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); // Creates three columns
-    grid-gap: 20px; // Adjust this value for desired spacing
-    margin: 20px auto; // Center the grid horizontally
-    width: calc(100% - 40px); // Adjust width to account for margin
-    justify-content: center;
-    justify-items: center;
-    background-color:  rgb(35, 35, 35);
-    padding: 10px;
-  }
-  
-  .image-grid > div { // Assuming each book is wrapped in a div
-    display: flex; // You can also use display: block; if you prefer
-    flex-direction: column;
-    align-items: center; // This will center the content in the flex direction
-    text-align: center; // This will center text within the content
-  }
-  
-  .bookImage {
-    width: 50%; // Adjust this to change the size of the images within their cells
-    height: auto; // Maintains aspect ratio
-    margin: auto; // Centers the image in the cell
-  }
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); // 5 columns on larger screens
+  grid-gap: 20px;
+  margin: 20px auto;
+  width: calc(100% - 40px);
+  justify-content: center;
+  justify-items: center;
+  background-color: rgb(35, 35, 35);
+  padding: 10px;
+}
 
-  .buy-button{
-    color:  rgb(0, 0, 0);
-    background-color: $light-pink;
-    font-weight: bold;
-    border-color: $dark-pink;
-    border-radius: 50px;
-  
-  }
-  
-  h3, h4 {
-    text-align: center;
-    margin: 0; // Removes default margin to align text properly within the cell
-  }
+.image-grid > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-  h1 {
-    color:  $dark-pink;
-    text-shadow: 1px 1px black;
-    text-align: center;
-    margin: 0; 
-    text-transform: uppercase;
-    text-decoration: underline;
+/* Mobile view with single column layout */
+@media (max-width: 600px) {
+  .image-grid {
+      grid-template-columns: 1fr; 
   }
+}
 
-  
+.bookImage {
+  width: 100%; 
+  height: auto;
+  margin: auto;
+}
+
+.buy-button {
+  color: rgb(0, 0, 0);
+  background-color: rgb(243, 134, 178);
+  font-weight: bold;
+  border-color: rgb(242, 89, 151);
+  border-radius: 50px;
+}
+
+h3, h4 {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(242, 89, 151);
+  text-shadow: 1px 1px black;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+}

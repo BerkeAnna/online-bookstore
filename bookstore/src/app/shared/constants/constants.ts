@@ -12,12 +12,6 @@ export const BookObject = [
         'price': '5'
            },
     {
-        'id': 'Krimi',
-        'author': 'Krimi author',
-        'title': 'Krimi title',
-        'price': '5'
-          },
-    {
         'id': 'Romance',
         'author': 'Romance author',
         'title': 'Romance title',

@@ -11,10 +11,9 @@ export class SuccessfullyorderComponent implements OnInit {
   constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
-    // Redirect if the cart is not empty for any reason
     if (this.cartService.getItems().length > 0) {
       this.cartService.clearCart();
-      this.router.navigate(['/books']);  // Adjust as needed
+      this.router.navigate(['/books']); 
     }
   }
 }

@@ -15,28 +15,15 @@
         <mat-icon>library_books</mat-icon>
         <span>Books</span>
     </a>
-    <a mat-list-item routerLink="/book-page" (click)="close()">
-        <mat-icon>book</mat-icon>
-        <span>Book-page</span>
-    </a>
-    <a mat-list-item routerLink="/contact" (click)="close()">
-        <mat-icon>alternate_email</mat-icon>
-        <span>Contact</span>
-    </a>
+   
     <a mat-list-item routerLink="/cart" (click)="close()">
         <mat-icon>shopping_cart</mat-icon>
         <span>Cart</span>
     </a>
+
+    <a mat-list-item routerLink="/contact" (click)="close()">
+        <mat-icon>alternate_email</mat-icon>
+        <span>Contact</span>
+    </a>
 </mat-nav-list>
 
-
-<!---<select [(ngModel)]="currentPage" (change)="menuSwitch()" >
-    <option value="login">Login</option>
-    <option value="signup">Register</option>
-    <option value="home">Home</option>
-    <option value="books">Books</option>
-    <option value="book-page">Book</option>
-    <option value="contact">Contact</option>
-    <option value="cart">Cart</option>
-</select>
--->

@@ -21,6 +21,10 @@
     <tr mat-row *matRowDef="let row; columns: ['title', 'author', 'price'];"></tr>
   </table>
 
+  <div *ngIf="items.length > 0" class="totalPrice">
+    <h2>Total Price: {{ total }} $</h2>
+  </div>
+
   <ng-template #noItemsTemplate>
     <p>No items in the cart.</p>
   </ng-template>

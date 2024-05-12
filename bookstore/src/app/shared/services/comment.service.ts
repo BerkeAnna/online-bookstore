@@ -14,7 +14,7 @@ export class CommentService {
     return this.firestore.collection('comments').add(comment);
   }
 
-  // Retrieve comments for a specific book, ordered by date, limited to 10 comments
+  // Retrieve comments for a specific book, ordered by date
   getComments(bookId: string) {
     return this.firestore.collection<Comment>('comments', ref => 
       ref.where('bookid', '==', bookId)
@@ -22,12 +22,12 @@ export class CommentService {
       .valueChanges({ idField: 'id' });
   }
 
-  // This method deletes a comment based on its document ID
+  // deletes a comment based on its document ID
   delete(id: string){
     return this.firestore.collection<Comment>('comments').doc(id).delete();
   }
 
-  // This method updates a comment's document based on its ID
+  // updates a comment's document based on its ID
   update(comment: Comment){
     return this.firestore.collection<Comment>('comments').doc(comment.id).set(comment);
   }
