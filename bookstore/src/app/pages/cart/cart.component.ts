@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CartService } from '../../shared/services/cart.service';
 
 @Component({
@@ -14,14 +14,15 @@ export class CartComponent implements OnInit {
   items: any[] = [];
   total: number = 0;  // Total price of the items
   OrderForm = new FormGroup({
-    bankAccount: new FormControl(''),
-    address: new FormControl(''),
+    bankAccount: new FormControl('', Validators.required),  // Now a required field
+    address: new FormControl('', Validators.required),      // Now a required field
     email: new FormControl(''),
     name: new FormGroup({
       firstname: new FormControl(''),
       lastname: new FormControl(''),
     })
   });
+  
 
   constructor(private cartService: CartService, private router: Router) {}
 
@@ -35,11 +36,14 @@ export class CartComponent implements OnInit {
   }
 
   placeOrder(): void {
-    if (this.items.length > 0) {
+    if (this.OrderForm.valid && this.items.length > 0) {
       this.cartService.clearCart();
       this.router.navigate(['/cart/successful']);
+    } else if (!this.OrderForm.valid) {
+      alert('Please fill in all required fields.');
     } else {
       alert('Your cart is empty!');
     }
   }
+  
 }
