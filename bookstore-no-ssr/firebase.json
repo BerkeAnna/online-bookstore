@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "bookstore-no-ssr",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

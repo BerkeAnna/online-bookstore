@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bookstore-no-ssr": {
+      "hosting": {
+        "bookstore-no-ssr": [
+          "bookstore-no-ssr"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bookstore-no-ssr"
+  }
+}
