@@ -1,26 +1,96 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
+
+
 import { AppComponent } from './app.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getAuth, provideAuth } from '@angular/fire/auth';
+import { MenuComponent } from './shared/menu/menu.component';
+import { BooksComponent } from './pages/books/books.component';
+import { ViewerComponent } from './pages/books/viewer/viewer.component';
+import { ListComponent } from './pages/books/list/list.component';
+import { BookPageComponent } from './pages/books/book-page/book-page.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { SuccessfullyorderComponent } from './pages/cart/successfullyorder/successfullyorder.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire/compat';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+
+import { environment } from '../environments/environment';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    //HomeComponent,
+    //ContactComponent,
+    MenuComponent,
+    BooksComponent,
+    ViewerComponent,
+    ListComponent,
+    BookPageComponent,
+    CartComponent,
+    SuccessfullyorderComponent,
+    ContactComponent,
+    HomeComponent,
+    LoginComponent,
+    NotFoundComponent,
+    SignupComponent,
+    DateFormatPipe,
+    //CartComponent,
+    //DateFormatPipe,
+    //BookPageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    FlexLayoutModule,
+    MatListModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FlexLayoutModule,
+    
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp({"projectId":"bookstore-no-ssr","appId":"1:705035837325:web:5ed20a27f041318dfaa7c4","storageBucket":"bookstore-no-ssr.appspot.com","apiKey":"AIzaSyBuU6JLk0573SwgP6_RPlS34jNbVI1uxj0","authDomain":"bookstore-no-ssr.firebaseapp.com","messagingSenderId":"705035837325"})),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
   ],
-  providers: [],
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
