@@ -1,37 +1,49 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { BookPageComponent } from './pages/books/book-page/book-page.component';
+import { BooksComponent } from './pages/books/books.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CartComponent } from './pages/cart/cart.component';
+import { SuccessfullyorderComponent } from './pages/cart/successfullyorder/successfullyorder.component';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
- /* { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-  { path: 'book-page', loadChildren: () => import('./pages/books/book-page/book-page.module').then(m => m.BookPageModule),
-  canActivate: [AuthGuard]
+ { path: 'home', component: HomeComponent },
+ { path: 'book-page', component: BookPageComponent,
+  //canActivate: [AuthGuard]
    },
 
-  { path: 'books', loadChildren: () => import('./pages/books/books.module').then(m => m.BooksModule),
-    canActivate: [AuthGuard]
+  { path: 'books', component: BooksComponent,
+ //   canActivate: [AuthGuard]
    },
-  { path: 'contact',loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) },
-  { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then(m => m.CartModule),
-  canActivate: [OrderGuard]
+   
+  { path: 'contact', component: ContactComponent },
+  { path: 'cart', component: CartComponent,
+//  canActivate: [OrderGuard]
    },
 
-   { path: 'cart/successful', component: SuccessfullyorderComponent, canActivate: [OrderGuard] },
+   { path: 'cart/successful', component: SuccessfullyorderComponent, //canActivate: [OrderGuard]
 
+    },
 
+/*
   { 
     path: 'book-page/successful/:username', 
     component: SuccessfulComponent
   },
-  
+  */
   
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
-  { path: 'signup', loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule) },  // Alapértelmezett útvonal beállítása
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent},  // Alapértelmezett útvonal beállítása
   { path: '**', redirectTo: '/not-found' } , // Nem létező útvonalak kezelése
   { 
-    path: 'not-found', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) 
+    path: 'not-found',component: NotFoundComponent
   },
-*/
+
 ];
 
 @NgModule({

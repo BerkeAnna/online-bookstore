@@ -6,9 +6,30 @@
           "bookstore-no-ssr"
         ]
       }
+    },
+    "bookstore-no-ssr-2": {
+      "hosting": {
+        "bookstore-no-ssr": [
+          "bookstore-n-ssr"
+        ]
+      }
+    },
+    "bs-no-ssr": {
+      "hosting": {
+        "bookstore-no-ssr": [
+          "bs-no-ssr"
+        ]
+      }
+    },
+    "bookstore-1fb04": {
+      "hosting": {
+        "bookstore-no-ssr": [
+          "bookstore-1fb04"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "bookstore-no-ssr"
+    "default": "bookstore-1fb04"
   }
 }

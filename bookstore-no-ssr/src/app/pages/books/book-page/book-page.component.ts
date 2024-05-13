@@ -5,6 +5,7 @@ import { ImageService } from '../../../shared/services/image.service';
 import { CartService } from '../../../shared/services/cart.service';
 import { CommentService } from '../../../shared/services/comment.service';
 import { Comment } from '../../../shared/models/Comment';
+import { BooksService } from '../../../shared/services/books.service';
 
 @Component({
   selector: 'app-book-page',
@@ -30,7 +31,8 @@ export class BookPageComponent implements OnInit {
     private imageService: ImageService, 
     private route: ActivatedRoute,
     private cartService: CartService,
-    private commentService: CommentService
+    private commentService: CommentService,
+    private bookService: BooksService,
   ) {}
 
   ngOnInit(): void {
@@ -39,16 +41,30 @@ export class BookPageComponent implements OnInit {
         id: params['id'],
         title: params['title'],
         author: params['author'],
-        price: +params['price']
+        price: +params['price'],
+        pages: params['pages'], // Ensure these parameters are being passed and logged
+        year: params['year'],
+        publisher: params['publisher'],
+        content: params['content']
       };
       
-      console.log(this.book);
+      console.log('Book data:', this.book); // Check what data is loaded
       this.bookId = this.book.id;
-      this.loadImage(this.book.id);
-      this.loadComments();  
+     //   this.loadImage(this.bookId); // Használja az imageId-t, ha van, különben a könyv id-ját
+       // this.loadComments();
+        this.fetchBookData(this.bookId)
     });
   }
-
+  
+  fetchBookData(bookId: string): void {
+    // Ideális esetben ez a metódus egy szolgáltatást hív meg, ami visszaadja a teljes könyv objektumot a Firestore-ból.
+   // this.bookService.getBookById(bookId).subscribe(book => {
+     
+      console.log('Book data:', this.book);
+      this.loadImage(this.book.id); // Használja az imageId-t, ha van, különben a könyv id-ját
+      this.loadComments();
+   // });
+  }
 
 
   addComment(): void {
