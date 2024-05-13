@@ -36,37 +36,27 @@ export class BookPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.book = {
-        id: params['id'],
-        title: params['title'],
-        author: params['author'],
-        price: +params['price'],
-        pages: params['pages'], // Ensure these parameters are being passed and logged
-        year: params['year'],
-        publisher: params['publisher'],
-        content: params['content']
-      };
-      
-      console.log('Book data:', this.book); // Check what data is loaded
-      this.bookId = this.book.id;
-     //   this.loadImage(this.bookId); // Használja az imageId-t, ha van, különben a könyv id-ját
-       // this.loadComments();
-        this.fetchBookData(this.bookId)
+  this.route.queryParams.subscribe(params => {
+    this.bookId = params['id'];
+    if (this.bookId) {
+      this.bookService.getBookById(this.bookId).subscribe(book => {
+        this.book = book;
+        console.log('Book data:', this.book);
+        console.log('Book id:', this.bookId);
+        this.loadImage( this.bookId);
+        this.loadComments();
+      });
+    }
+  });
+}
+
+
+  loadBooks(bookid: string): void {
+    this.bookService.getBookById(this.bookId).subscribe(book => {
+      this.book = book;
     });
   }
   
-  fetchBookData(bookId: string): void {
-    // Ideális esetben ez a metódus egy szolgáltatást hív meg, ami visszaadja a teljes könyv objektumot a Firestore-ból.
-   // this.bookService.getBookById(bookId).subscribe(book => {
-     
-      console.log('Book data:', this.book);
-      this.loadImage(this.book.id); // Használja az imageId-t, ha van, különben a könyv id-ját
-      this.loadComments();
-   // });
-  }
-
-
   addComment(): void {
     if (this.commentsForm.valid) {
       const formValue = this.commentsForm.getRawValue(); 

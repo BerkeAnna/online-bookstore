@@ -2,25 +2,26 @@
   <mat-card fxLayout="row wrap">
     <div fxFlex="1 1 70%" class="book-content">
       <mat-card-header>
-        <mat-card-title>{{ book.title }}</mat-card-title>
+        <mat-card-title>{{ book[0].title }}</mat-card-title>
       </mat-card-header>
 
       <mat-card-content>
-        <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-        <mat-label>{{ book.content }}</mat-label>
-        <h4>{{ book.price }} $</h4>
+        
+        <mat-card-subtitle>{{ book[0].author }}</mat-card-subtitle>
+        <mat-label>{{ book[0].content }}</mat-label>
+        <h4>{{ book[0].price }} $</h4>
         <button mat-raised-button class="buy-button" color="primary" (click)="addToCart(book)">Buy</button>
       </mat-card-content>
     </div>
     <div fxFlex="1 1 30%">
       <mat-card-content>
         <div class="image">
-          <img [src]="book.image_url" class="bookImage" alt="Book Image" />
+          <img [src]="book.imageUrl" class="bookImage" alt="Book Image" />
         </div>
         
-        <h2>Page: <mat-label>{{ book.pages }}</mat-label></h2>
-        <h2>Year: <mat-label>{{ book.year }}</mat-label></h2>
-        <h2>Publisher: <mat-label>{{ book.publisher }}</mat-label></h2>
+        <h2>Page: <mat-label>{{ book[0].pages }}</mat-label></h2>
+        <h2>Year: <mat-label>{{ book[0].year }}</mat-label></h2>
+        <h2>Publisher: <mat-label>{{ book[0].publisher }}</mat-label></h2>
       </mat-card-content>
     </div>
     <div fxFlex="1 1 50%">

@@ -35,11 +35,21 @@ export class ViewerComponent implements OnInit{
       });
     }
   }
-
   viewMore(book: any) {
-    this.router.navigate(['/book-page'], { queryParams: { id: book.id, title: book.title, author: book.author, price: book.price } });
-
+    this.router.navigate(['/book-page'], { queryParams: {
+      id: book.id, 
+      title: book.title, 
+      author: book.author, 
+      price: book.price,
+     // pages: "50", //todo: mivel a books oldalon nem szerepelnek ezek a plusz adatok ezért nem tudjka átasdni a paramoban. 
+      //le kellene kérni egy id found fvnyel a serviceben
+      year: book.year,
+      publisher: book.publisher,
+      content: book.content
+    }});
   }
+  
+  
   
 
 }
