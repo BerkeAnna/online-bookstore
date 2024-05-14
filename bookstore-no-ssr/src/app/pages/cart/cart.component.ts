@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
   }
 
   calculateTotal(): void {
-    this.total = this.items.reduce((acc, item) => acc + item.price, 0);
+    this.total = this.items.reduce((acc, item) => acc + item[0].price, 0);
   }
 
   placeOrder(): void {
