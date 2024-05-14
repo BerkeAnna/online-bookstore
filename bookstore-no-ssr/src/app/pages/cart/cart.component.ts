@@ -12,17 +12,16 @@ export class CartComponent implements OnInit {
   displayedColumns: string[] = ['title', 'author', 'price'];
   dataSource = [];
   items: any[] = [];
-  total: number = 0;  // Total price of the items
+  total: number = 0;
   OrderForm = new FormGroup({
-    bankAccount: new FormControl('', Validators.required),  // Now a required field
-    address: new FormControl('', Validators.required),      // Now a required field
+    bankAccount: new FormControl('', Validators.required),
+    address: new FormControl('', Validators.required),
     email: new FormControl(''),
     name: new FormGroup({
       firstname: new FormControl(''),
       lastname: new FormControl(''),
     })
   });
-  
 
   constructor(private cartService: CartService, private router: Router) {}
 
@@ -38,12 +37,10 @@ export class CartComponent implements OnInit {
   placeOrder(): void {
     if (this.OrderForm.valid && this.items.length > 0) {
       this.router.navigate(['/cart/successful']);
-      //this.cartService.clearCart();
     } else if (!this.OrderForm.valid) {
       alert('Please fill in all required fields.');
     } else {
       alert('Your cart is empty!');
     }
   }
-  
 }

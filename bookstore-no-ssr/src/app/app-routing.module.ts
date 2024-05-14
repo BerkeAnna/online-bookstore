@@ -11,40 +11,19 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
- { path: 'home', component: HomeComponent },
- { path: 'book-page', component: BookPageComponent,
-  //canActivate: [AuthGuard]
-   },
-
-  { path: 'books', component: BooksComponent,
- //   canActivate: [AuthGuard]
-   },
-   
+  { path: 'home', component: HomeComponent },
+  { path: 'book-page', component: BookPageComponent },
+  { path: 'books', component: BooksComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'cart', component: CartComponent,
-//  canActivate: [OrderGuard]
-   },
-
-   { path: 'cart/successful', component: SuccessfullyorderComponent, //canActivate: [OrderGuard]
-
-    },
-
-/*
-  { 
-    path: 'book-page/successful/:username', 
-    component: SuccessfulComponent
-  },
-  */
-  
+  { path: 'cart', component: CartComponent },
+  { path: 'cart/successful', component: SuccessfullyorderComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent},  // Alapértelmezett útvonal beállítása
-  { path: '**', redirectTo: '/not-found' } , // Nem létező útvonalak kezelése
-  { 
-    path: 'not-found',component: NotFoundComponent
-  },
-
+  { path: 'signup', component: SignupComponent },
+  { path: '**', redirectTo: '/not-found' },
+  { path: 'not-found', component: NotFoundComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

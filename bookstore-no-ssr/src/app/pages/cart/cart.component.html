@@ -31,39 +31,37 @@
   
   
     <div class="div-flex">
-        <form [formGroup]="OrderForm">
-          <div class="div-flex">
-              <h1>Enter your data for the order </h1>
-              <div formGroupName="name" class="submitForm">
-                  <mat-form-field>
-                      <mat-label>First name:</mat-label>
-                      <input matInput type="text" formControlName="firstname" />
-                  </mat-form-field>
-                  <mat-form-field>
-                      <mat-label>Last name:</mat-label>
-                      <input matInput type="text" formControlName="lastname" />
-                  </mat-form-field>
-              </div>
-              <mat-form-field>
-                  <mat-label>Bank account:</mat-label>
-                  <input matInput type="text" formControlName="bankAccount" />
-              </mat-form-field>
-              <mat-form-field>
-                  <mat-label>Address:</mat-label>
-                  <input matInput type="text" formControlName="address" />
-              </mat-form-field>
-              <mat-form-field>
-                <mat-label>Email:</mat-label>
-                <input matInput type="text" formControlName="email" />
+      <form [formGroup]="OrderForm">
+        <div class="div-flex">
+            <h1>Enter your data for the order </h1>
+            <div formGroupName="name" class="submitForm">
+                <mat-form-field>
+                    <mat-label>First name:</mat-label>
+                    <input matInput type="text" formControlName="firstname" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Last name:</mat-label>
+                    <input matInput type="text" formControlName="lastname" />
+                </mat-form-field>
+            </div>
+            <mat-form-field>
+                <mat-label>Bank account:</mat-label>
+                <input matInput type="text" formControlName="bankAccount" />
             </mat-form-field>
-              
-              <div>
-                  <button mat-raised-button color="primary" [routerLink]="'/cart/successful'" type="button">Order</button>
-              </div>
-          </div>
-      </form>
-      
-    </div>
-  
-  
+            <mat-form-field>
+                <mat-label>Address:</mat-label>
+                <input matInput type="text" formControlName="address" />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email:</mat-label>
+              <input matInput type="text" formControlName="email" />
+          </mat-form-field>
+            
+            <div>
+                <button mat-raised-button color="primary" (click)="placeOrder()" type="button">Order</button>
+            </div>
+        </div>
+    </form>
+    
   </div>
+</div>
