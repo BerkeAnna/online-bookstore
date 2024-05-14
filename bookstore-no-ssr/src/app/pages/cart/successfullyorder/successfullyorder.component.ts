@@ -13,7 +13,7 @@ export class SuccessfullyorderComponent implements OnInit {
   ngOnInit() {
     if (this.cartService.getItems().length > 0) {
       this.cartService.clearCart();
-      this.router.navigate(['/books']); 
+    //  this.router.navigate(['/books']); 
     }
   }
 }

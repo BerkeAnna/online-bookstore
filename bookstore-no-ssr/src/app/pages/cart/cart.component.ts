@@ -37,8 +37,8 @@ export class CartComponent implements OnInit {
 
   placeOrder(): void {
     if (this.OrderForm.valid && this.items.length > 0) {
-      this.cartService.clearCart();
       this.router.navigate(['/cart/successful']);
+      //this.cartService.clearCart();
     } else if (!this.OrderForm.valid) {
       alert('Please fill in all required fields.');
     } else {
