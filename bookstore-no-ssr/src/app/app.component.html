@@ -1,8 +1,5 @@
-
-
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <!-- Ellenőrizzük, hogy a 'page' változó értéke nem üres-e -->
     <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page != ''" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
   </mat-sidenav>
 
@@ -13,7 +10,7 @@
           <mat-icon>menu</mat-icon>
         </button>
       </div>
-      <div >BOOKSTORE</div>
+      <div>BOOKSTORE</div>
       <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
         <ul fxLayout fxLayoutGap="20px" class="nav-items">
           <li *ngIf="!(loggedInUser)"><a routerLink="/login">Login</a></li>
@@ -25,8 +22,8 @@
           <li><a routerLink="contact">Contact</a></li>
         </ul>
       </div>
+      <div *ngIf="loggedInUser && loggedInUser.email" class="user-name">Hello, {{ loggedInUser.email }}</div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
-
 </mat-sidenav-container>

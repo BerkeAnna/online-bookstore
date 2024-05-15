@@ -1,27 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter } from 'rxjs/operators';
 import { AuthService } from './shared/services/auth.service';
+import firebase from 'firebase/compat/app';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'bookstore';
-  page= '';
+  page = '';
   routes: Array<string> = [];
-  loggedInUser?: firebase.default.User | null;
+  loggedInUser?: firebase.User | null;
 
-  constructor(private router: Router, private authService: AuthService){
+  constructor(private router: Router, private authService: AuthService) { }
 
-  }
-  
   ngOnInit() {
     this.routes = this.router.config.map(conf => conf.path) as string[];
-    console.log(this.routes)
+    console.log(this.routes);
     
     this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((evts: any) => {
       const currentPage = (evts.urlAfterRedirects as string).split('/')[1] as string;
@@ -29,11 +28,15 @@ export class AppComponent implements OnInit{
         this.page = currentPage;
       }
     });
-  
+
     this.authService.isUserLoggedIn().subscribe(user => {
       this.loggedInUser = user;
-      if (typeof localStorage !== 'undefined') {
+      if (user && typeof localStorage !== 'undefined') {
         localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+      } else {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('user', JSON.stringify(null));
+        }
       }
     }, error => {
       console.error(error);
@@ -42,11 +45,8 @@ export class AppComponent implements OnInit{
       }
     });
   }
-  
 
-
-  changePage(selectedPage: string){
-    //this.page = selectedPage;
+  changePage(selectedPage: string) {
     this.router.navigateByUrl(selectedPage);
   }
 
@@ -54,17 +54,17 @@ export class AppComponent implements OnInit{
     sidenav.toggle();
   }
 
-  onClose(event: any, sidenav: MatSidenav){
-    if (event === true){
+  onClose(event: any, sidenav: MatSidenav) {
+    if (event === true) {
       sidenav.close();
     }
   }
 
-  logout(){
-      this.authService.logout().then(() => {
-        console.log('Logged out successfully')
-      }).catch(error => {
-        console.error(error);
-      });
+  logout() {
+    this.authService.logout().then(() => {
+      console.log('Logged out successfully');
+    }).catch(error => {
+      console.error(error);
+    });
   }
 }

@@ -23,7 +23,7 @@ export class CommentService {
   }
 
   // deletes a comment based on its document ID
-  delete(id: string){
+  delete(id: string | undefined){
     return this.firestore.collection<Comment>('comments').doc(id).delete();
   }
 
