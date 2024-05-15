@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
 
   placeOrder(): void {
     if (this.OrderForm.valid && this.items.length > 0) {
-      this.router.navigate(['/cart/successful']);
+      this.router.navigate(['/successfullyorder']);
     } else if (!this.OrderForm.valid) {
       alert('Please fill in all required fields.');
     } else {

@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'books', component: BooksComponent, canActivate: [AuthGuard] }, // Protect this route
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
-  { path: 'cart/successful', component: SuccessfullyorderComponent, canActivate: [AuthGuard] },
+  { path: 'successfullyorder', component: SuccessfullyorderComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
