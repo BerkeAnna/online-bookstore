@@ -1,21 +1,21 @@
-$dark-pink:  rgb(242, 89, 151);
+$dark-pink: rgb(242, 89, 151);
 $light-pink: rgb(243, 134, 178);
 
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0; // Make sure there is no padding adding extra space
-    margin: 0; // Reset any margin to ensure full width usage
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0; // Make sure there is no padding adding extra space
+  margin: 0; // Reset any margin to ensure full width usage
 }
 
 .break {
-    flex-basis: 100%;
-    height: 0;
+  flex-basis: 100%;
+  height: 0;
 }
 
-.comment-form{
+.comment-form {
   justify-content: center;
   align-self: center;
   width: 80%;
@@ -23,106 +23,130 @@ $light-pink: rgb(243, 134, 178);
 
 .image {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center;     /* Centers vertically */
-  width: 100%;             /* Takes full width of the container */
+  justify-content: center; // Centers horizontally
+  align-items: center; // Centers vertically
+  width: 100%; // Takes full width of the container
 }
 
 .bookImage {
-  width: 100%;   /* Full width of its container */
-  height: auto;  /* Maintain aspect ratio */
-  max-width: 300px; /* Set a max-width to prevent the image from being too large */
+  width: 100%; // Full width of its container
+  height: auto; // Maintain aspect ratio
+  max-width: 300px; // Set a max-width to prevent the image from being too large
 }
 
-.book-card{
+.book-card {
   padding: 50px;
 }
 
-mat-card-header{
+mat-card-header {
   display: flex;
-    padding: 16px 16px 0;
-    justify-content: center;
-    color: $dark-pink;
-    text-transform: uppercase;
+  padding: 16px 16px 0;
+  justify-content: center;
+  color: $dark-pink;
+  text-transform: uppercase;
 }
 
-mat-form-field{
+mat-form-field {
   width: 100%;
 }
 
 .mat-card-content {
-  display: flex;        
-  justify-content: center; 
-  align-items: center;    
-  text-align: center;    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-mat-card-actions{
+mat-card-actions {
   text-align: center;
   justify-content: center;
 }
-  
-  .bookImage {
-    width: 100%; 
-    height: auto; 
-    margin: auto; 
-    justify-content: end;
-  }
-  .title{
-    color: $dark-pink;
+
+.title {
+  color: $dark-pink;
+}
+
+.book-content {
+  padding-bottom: 100px;
+}
+
+.buy-button {
+  width: 100%;
+  height: auto;
+  max-height: 50px;
+  margin: auto;
+  justify-content: center;
+}
+
+h2,
+h3,
+h4 {
+  text-align: center;
+  margin: 0;
+}
+
+mat-card-subtitle {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  color: $dark-pink;
+  text-shadow: 1px 1px black;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.table-header {
+  background-color: rgb(237, 149, 98);
+}
+
+.table-header-even {
+  background-color: rgb(255, 208, 174);
+}
+
+.table-header-odd {
+  background-color: rgb(255, 221, 197);
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 600px) {
+  .book-card {
+    padding: 20px;
   }
 
-  .book-content{
-    padding-bottom: 100px;
+  .book-content,
+  .image-content,
+  .comment-form-container {
+    flex: 1 1 100%;
   }
 
-  .buy-button{
-    width: 100%; 
-    height: auto; 
-    max-height: 50px;
-    margin: auto; 
-    justify-content: center;
-  
-  }
-  
-  h2, h3, h4 {
-    text-align: center;
-    margin: 0; 
-  }
-  mat-card-subtitle{
-    text-align: center;
-    margin: 0;
-  }
-
-  h1 {
-    color: $dark-pink;
-    text-shadow: 1px 1px black;
-    text-align: center;
-    margin: 0; 
-    text-transform: uppercase;
-    text-decoration: underline;
-  }
-
-  .comment{
-    display: flex;
+  .mat-card-content,
+  mat-card-actions {
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    }
-    table, th, td {
-        border: 1px solid black;
-    }
+  }
 
-    .table-header{
-        background-color:  rgb(237, 149, 98);
-    }
+  .bookImage {
+    max-width: 100%;
+  }
 
-    .table-header-even {
-        background-color: rgb(255, 208, 174);
-    }
-
-    .table-header-odd {
-        background-color:  rgb(255, 221, 197);
-    }
-
-  
+  .comment-form {
+    width: 100%;
+  }
+}
