@@ -31,17 +31,22 @@ export class AppComponent implements OnInit {
 
     this.authService.isUserLoggedIn().subscribe(user => {
       this.loggedInUser = user;
-      if (user && typeof localStorage !== 'undefined') {
-        localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+      if (user) {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+          localStorage.setItem('userEmail', user.email ?? '');
+        }
       } else {
         if (typeof localStorage !== 'undefined') {
           localStorage.setItem('user', JSON.stringify(null));
+          localStorage.setItem('userEmail', '');
         }
       }
     }, error => {
       console.error(error);
       if (typeof localStorage !== 'undefined') {
         localStorage.setItem('user', JSON.stringify(null));
+        localStorage.setItem('userEmail', '');
       }
     });
   }

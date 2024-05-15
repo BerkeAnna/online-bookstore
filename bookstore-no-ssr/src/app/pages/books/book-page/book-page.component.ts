@@ -17,10 +17,9 @@ export class BookPageComponent implements OnInit {
   imageUrl?: string;
   book: any;
   bookId!: string;
-  currentUser: string | null = localStorage.getItem('currentUser'); // Assuming the current user's username is stored in localStorage
+  currentUser: string | null = localStorage.getItem('userEmail'); // Assuming the current user's email is stored in localStorage
 
   commentsForm = this.fb.group({
-    username: ['', [Validators.required]],
     stars: [0, [Validators.required]],
     comment: ['', [Validators.required, Validators.maxLength(500), Validators.minLength(10)]],
     date: [new Date()]
@@ -54,7 +53,7 @@ export class BookPageComponent implements OnInit {
       const formValue = this.commentsForm.getRawValue();
       const newComment: Omit<Comment, 'id'> = {
         bookid: this.bookId,
-        username: formValue.username ?? '',
+        username: this.currentUser ?? '', // Use the current user's email as username
         stars: formValue.stars ?? 0,
         comment: formValue.comment ?? '',
         date: formValue.date ?? new Date()
@@ -105,7 +104,6 @@ export class BookPageComponent implements OnInit {
   }
 
   isCommentOwner(username: string): boolean {
-    console.log("cur: " + this.currentUser)
     return this.currentUser === username;
   }
 
