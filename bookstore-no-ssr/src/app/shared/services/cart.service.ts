@@ -11,8 +11,9 @@ export class CartService {
 
   addItem(item: any): void {
     this.items.push(item);
-    console.log('Item added:', item); // Use this log to ensure data is added
+    console.log('Item added:', item); // Ensure this logs correctly
 }
+
 
 getItems(): any[] {
     return this.items;

@@ -10,13 +10,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AuthGuard } from './shared/services/auth.guard';
+import { OrderGuard } from './shared/services/order.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'book-page', component: BookPageComponent, canActivate: [AuthGuard] }, // Protect this route
   { path: 'books', component: BooksComponent, canActivate: [AuthGuard] }, // Protect this route
   { path: 'contact', component: ContactComponent },
-  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard, OrderGuard] },
   { path: 'successfullyorder', component: SuccessfullyorderComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

@@ -11,3 +11,7 @@ a viewen nem változott a price összege, de a bookpagen jó már
 05.15. 8:57
 kosárból törlés
 comment szűrés
+
+
+2024.05.15. 11:37
+comment szerkesztés oké. de nem viszi át az adatokat a cartba

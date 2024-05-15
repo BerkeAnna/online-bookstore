@@ -27,11 +27,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = this.cartService.getItems();
+    console.log('Items in cart:', this.items); // Check this log
     this.calculateTotal();
-  }
+}
+
 
   calculateTotal(): void {
-    this.total = this.items.reduce((acc, item) => acc + item[0].price, 0);
+    this.total = this.items.reduce((acc, item) => acc + item.price, 0);
   }
 
   placeOrder(): void {
