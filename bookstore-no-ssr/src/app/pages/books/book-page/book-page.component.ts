@@ -18,6 +18,7 @@ export class BookPageComponent implements OnInit {
   book: any;
   bookId!: string;
   currentUser: string | null = localStorage.getItem('userEmail'); // Assuming the current user's email is stored in localStorage
+  editingCommentId?: string;
 
   commentsForm = this.fb.group({
     stars: [0, [Validators.required]],
@@ -59,17 +60,48 @@ export class BookPageComponent implements OnInit {
         date: formValue.date ?? new Date()
       };
 
-      this.commentService.addComment(newComment).then(docRef => {
-        const fullComment: Comment = {
-          ...newComment,
-          id: docRef.id
-        };
-        this.comments.push(fullComment);
-        this.commentsForm.reset();
-      }).catch(error => {
-        console.error("Failed to add comment: ", error);
-      });
+      if (this.editingCommentId) {
+        this.updateComment(this.editingCommentId, newComment);
+      } else {
+        this.commentService.addComment(newComment).then(docRef => {
+          const fullComment: Comment = {
+            ...newComment,
+            id: docRef.id
+          };
+          this.comments.push(fullComment);
+          this.commentsForm.reset();
+        }).catch(error => {
+          console.error("Failed to add comment: ", error);
+        });
+      }
     }
+  }
+
+  editComment(comment: Comment): void {
+    this.editingCommentId = comment.id;
+    this.commentsForm.setValue({
+      stars: comment.stars,
+      comment: comment.comment,
+      date: comment.date
+    });
+  }
+
+  updateComment(commentId: string, updatedComment: Omit<Comment, 'id'>): void {
+    const comment: Comment = {
+      ...updatedComment,
+      id: commentId
+    };
+
+    this.commentService.update(comment).then(() => {
+      const index = this.comments.findIndex(c => c.id === commentId);
+      if (index > -1) {
+        this.comments[index] = comment;
+      }
+      this.commentsForm.reset();
+      this.editingCommentId = undefined;
+    }).catch(error => {
+      console.error("Failed to update comment: ", error);
+    });
   }
 
   loadComments(): void {

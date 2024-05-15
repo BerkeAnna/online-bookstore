@@ -46,7 +46,9 @@
               <textarea matInput rows="10" cols="50" formControlName="comment"></textarea>
             </mat-form-field>
             <div class="break"></div>
-            <button mat-raised-button color="primary" type="submit">SAVE</button>
+            <button mat-raised-button color="primary" type="submit">
+              {{ editingCommentId ? 'Update' : 'Save' }}
+            </button>
           </div>
         </form>
       </mat-card-actions>
@@ -72,6 +74,9 @@
             <mat-card-content>
               <p>{{ comment.comment }}</p>
               <p>Rating: {{ comment.stars }}/5</p>
+              <button *ngIf="isCommentOwner(comment.username)" mat-raised-button color="primary" mat-button (click)="editComment(comment)">
+                Edit
+              </button>
               <button *ngIf="isCommentOwner(comment.username)" mat-raised-button color="primary" mat-button (click)="deleteComment(comment.id)">
                 Delete
               </button>

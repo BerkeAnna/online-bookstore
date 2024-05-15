@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { map } from 'rxjs/operators';
 import { Comment } from '../models/Comment';
 
 @Injectable({
@@ -22,17 +21,17 @@ export class CommentService {
       .valueChanges({ idField: 'id' });
   }
 
-  // deletes a comment based on its document ID
-  delete(id: string | undefined){
+  // Delete a comment based on its document ID
+  delete(id: string | undefined) {
     return this.firestore.collection<Comment>('comments').doc(id).delete();
   }
 
-  // updates a comment's document based on its ID
-  update(comment: Comment){
+  // Update a comment's document based on its ID
+  update(comment: Comment) {
     return this.firestore.collection<Comment>('comments').doc(comment.id).set(comment);
   }
 
-  //todo
+  // Retrieve comments by rating for a specific book
   getCommentsByRating(bookId: string, rating: number) {
     return this.firestore.collection<Comment>('comments', ref => 
       ref.where('bookid', '==', bookId)
