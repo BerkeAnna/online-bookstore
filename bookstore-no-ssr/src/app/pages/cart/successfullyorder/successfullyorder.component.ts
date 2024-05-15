@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-successfullyorder',
-  template: `<div>Order Completed Successfully!</div>`
+  templateUrl: './successfullyorder.component.html',
+  styleUrl: './successfullyorder.component.scss'
 })
 export class SuccessfullyorderComponent implements OnInit {
 
