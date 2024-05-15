@@ -1,4 +1,4 @@
-<div class="book-card">
+<div class="book-card" *ngIf="book && book.length > 0">
   <mat-card fxLayout="column" fxLayout.gt-sm="row wrap">
     <div fxFlex="1 1 70%" class="book-content">
       <mat-card-header>
@@ -9,14 +9,14 @@
         <mat-card-subtitle>{{ book[0].author }}</mat-card-subtitle>
         <mat-label>{{ book[0].content }}</mat-label>
         <h4>{{ book[0].price }} $</h4>
-        <button mat-raised-button class="buy-button" color="primary" (click)="addToCart(book)">Buy</button>
+        <button mat-raised-button class="buy-button" color="primary" (click)="addToCart(book[0])">Buy</button>
       </mat-card-content>
     </div>
 
     <div fxFlex="1 1 30%" class="image-content">
       <mat-card-content>
         <div class="image">
-          <img [src]="book.imageUrl" class="bookImage" alt="Book Image" />
+          <img [src]="book[0].imageUrl" class="bookImage" alt="Book Image" />
         </div>
 
         <h2>Page: <mat-label>{{ book[0].pages }}</mat-label></h2>
@@ -26,6 +26,7 @@
     </div>
 
     <div fxFlex="1 1 100%" class="comment-form-container">
+      <h2 class="title">Add your comment!</h2>
       <mat-card-actions>
         <form class="comment-form" [formGroup]="commentsForm" (ngSubmit)="addComment()">
           <div>
