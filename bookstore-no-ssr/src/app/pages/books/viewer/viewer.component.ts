@@ -1,29 +1,46 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from '../../../shared/services/image.service';
+import { BooksService } from '../../../shared/services/books.service';
 
 @Component({
   selector: 'app-viewer',
   templateUrl: './viewer.component.html',
-  styleUrl: './viewer.component.scss'
+  styleUrls: ['./viewer.component.scss']
 })
-export class ViewerComponent implements OnInit{
+export class ViewerComponent implements OnInit {
 
   @Input() categoryInput: any;
   imageUrl?: string;
+  bookId!: string;
+  book: any[] = [];  // Initialize book as an empty array
 
-
-  constructor(private router: Router, private imageService: ImageService){
-
-  }
+  constructor(
+    private router: Router, 
+    private imageService: ImageService,   
+    private route: ActivatedRoute,
+    private bookService: BooksService
+  ) { }
 
   ngOnInit(): void {
-    this.loadImage();
+    this.route.queryParams.subscribe(params => {
+      this.bookService.getBookById(this.categoryInput.id).subscribe(book => {
+        this.book = book;
+        this.loadImage();
+        console.log(this.book);
+      });
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['categoryInput']) {
-      this.loadImage();
+      this.route.queryParams.subscribe(params => {
+        this.bookService.getBookById(this.categoryInput.id).subscribe(book => {
+          this.book = book;
+          this.loadImage();
+          console.log(this.book);
+        });
+      });
     }
   }
 
@@ -35,21 +52,19 @@ export class ViewerComponent implements OnInit{
       });
     }
   }
-  viewMore(book: any) {
-    this.router.navigate(['/book-page'], { queryParams: {
-      id: book.id, 
-      title: book.title, 
-      author: book.author, 
-      price: book.price,
-     // pages: "50", //todo: mivel a books oldalon nem szerepelnek ezek a plusz adatok ezért nem tudjka átasdni a paramoban. 
-      //le kellene kérni egy id found fvnyel a serviceben
-      year: book.year,
-      publisher: book.publisher,
-      content: book.content
-    }});
-  }
-  
-  
-  
 
+  viewMore(book: any) {
+    console.log('books' + book.category)
+    this.router.navigate(['/book-page'], { 
+      queryParams: {
+        id: book.id, 
+        title: book.title, 
+        author: book.author, 
+        price: book.price,
+        year: book.year,
+        publisher: book.publisher,
+        content: book.content
+      }
+    });
+  }
 }

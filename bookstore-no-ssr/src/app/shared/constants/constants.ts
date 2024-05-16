@@ -3,13 +3,13 @@ export const BookObject = [
         'id': 'Fantasy',
         'author': 'Fantasy author',
         'title': 'Fantasy title',
-        'price': '5'
+        'price': '50'
         },
     {
         'id': 'Horror',
         'author': 'Horror author',
         'title': 'Horror title',
-        'price': '6'
+        'price': '60'
            },
     {
         'id': 'Romance',

@@ -21,4 +21,5 @@ export class BooksService {
   getAllBooks(): Observable<Book[]> {
     return this.firestore.collection<Book>('books').valueChanges();
   }
+  
 }
