@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" *ngIf="page != ''" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
+    <app-menu (selectedPage)="changePage($event)" [currentPage]="page" [loggedInUser]="loggedInUser" (onCloseSidenav)="onClose($event, sidenav)" (onLogout)="logout()"></app-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -13,7 +13,7 @@
       <div>BOOKSTORE</div>
       <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
         <ul fxLayout fxLayoutGap="20px" class="nav-items">
-          <li *ngIf="!(loggedInUser)"><a routerLink="/login">Login</a></li>
+          <li *ngIf="!loggedInUser"><a routerLink="/login">Login</a></li>
           <li *ngIf="loggedInUser"><a routerLink="/login" (click)="logout()">Logout</a></li>
           <li><a routerLink="signup">Register</a></li>
           <li *ngIf="loggedInUser"><a routerLink="home">Home</a></li>

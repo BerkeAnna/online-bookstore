@@ -64,12 +64,14 @@ export class AppComponent implements OnInit {
       sidenav.close();
     }
   }
-
   logout() {
     this.authService.logout().then(() => {
+      this.loggedInUser = null; // Update loggedInUser after logout
       console.log('Logged out successfully');
+      this.router.navigate(['/login']); // Navigate to login page after logout
     }).catch(error => {
       console.error(error);
     });
   }
+  
 }

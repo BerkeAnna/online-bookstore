@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/compat/firestore';
 import { Comment } from '../models/Comment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +10,27 @@ export class CommentService {
   constructor(private firestore: AngularFirestore) {}
 
   // Add comments
-  addComment(comment: Omit<Comment, 'id'>) {
+  addComment(comment: Omit<Comment, 'id'>): Promise<DocumentReference<unknown>> {
     return this.firestore.collection('comments').add(comment);
   }
 
   // Retrieve comments for a specific book, ordered by date
-  getComments(bookId: string) {
+  getComments(bookId: string): Observable<Comment[]> {
     return this.firestore.collection<Comment>('comments', ref => 
       ref.where('bookid', '==', bookId)
         .orderBy('date', 'desc'))
       .valueChanges({ idField: 'id' });
   }
 
-  // Delete a comment based on its document ID
-  delete(id: string | undefined) {
+  delete(id: string | undefined): Promise<void> {
     return this.firestore.collection<Comment>('comments').doc(id).delete();
   }
 
-  // Update a comment's document based on its ID
-  update(comment: Comment) {
+  update(comment: Comment): Promise<void> {
     return this.firestore.collection<Comment>('comments').doc(comment.id).set(comment);
   }
 
-  // Retrieve comments by rating for a specific book
-  getCommentsByRating(bookId: string, rating: number) {
+  getCommentsByRating(bookId: string, rating: number): Observable<Comment[]> {
     return this.firestore.collection<Comment>('comments', ref => 
       ref.where('bookid', '==', bookId)
          .where('stars', '==', rating.toString())

@@ -15,3 +15,6 @@ comment szűrés
 
 2024.05.15. 11:37
 comment szerkesztés oké. de nem viszi át az adatokat a cartba
+
+2024.05.16.19:16
+movbilban login jelenik logout helyett
