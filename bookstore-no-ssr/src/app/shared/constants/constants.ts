@@ -9,13 +9,13 @@ export const BookObject = [
         'id': 'Horror',
         'author': 'Horror author',
         'title': 'Horror title',
-        'price': '5'
+        'price': '6'
            },
     {
         'id': 'Romance',
         'author': 'Romance author',
         'title': 'Romance title',
-        'price': '5'
+        'price': '6'
          },
     {
         'id': 'Thriller',
@@ -27,6 +27,6 @@ export const BookObject = [
         'id': 'YoungAdult',
         'author': 'YoungAdult author',
         'title': 'YoungAdult title',
-        'price': '5'
+        'price': '6'
        }
 ]
