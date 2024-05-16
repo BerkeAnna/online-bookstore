@@ -35,8 +35,9 @@ export class CommentService {
   getCommentsByRating(bookId: string, rating: number) {
     return this.firestore.collection<Comment>('comments', ref => 
       ref.where('bookid', '==', bookId)
-         .where('stars', '==', rating)
+         .where('stars', '==', rating.toString())
          .orderBy('date', 'desc'))
       .valueChanges({ idField: 'id' });
   }
 }
+
