@@ -38,3 +38,13 @@ mat-sidenav {
         display: none;
     }
 }
+
+.no-bullets {
+    list-style-type: none; 
+    padding: 0;            
+    margin: 0;            
+  }
+  
+  .no-bullets li {
+    padding-left: 0;     
+  }

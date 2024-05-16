@@ -12,7 +12,7 @@
       </div>
       <div>BOOKSTORE</div>
       <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
-        <ul fxLayout fxLayoutGap="20px" class="nav-items">
+        <ul fxLayout fxLayoutGap="20px" class="nav-items no-bullets">
           <li *ngIf="!loggedInUser"><a routerLink="/login">Login</a></li>
           <li *ngIf="loggedInUser"><a routerLink="/login" (click)="logout()">Logout</a></li>
           <li><a routerLink="signup">Register</a></li>
