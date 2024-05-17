@@ -27,7 +27,7 @@ export class ViewerComponent implements OnInit {
       this.bookService.getBookById(this.categoryInput.id).subscribe(book => {
         this.book = book;
         this.loadImage();
-        console.log(this.book);
+       // console.log(this.book);
       });
     });
   }
@@ -38,7 +38,7 @@ export class ViewerComponent implements OnInit {
         this.bookService.getBookById(this.categoryInput.id).subscribe(book => {
           this.book = book;
           this.loadImage();
-          console.log(this.book);
+         // console.log(this.book);
         });
       });
     }
@@ -47,14 +47,14 @@ export class ViewerComponent implements OnInit {
   loadImage(): void {
     if (this.categoryInput && this.categoryInput.id) {
       this.imageService.getImage(`images/${this.categoryInput.id}.jpg`).subscribe(url => {
-        console.log('id:' + this.categoryInput.id);
+       // console.log('id:' + this.categoryInput.id);
         this.imageUrl = url;
       });
     }
   }
 
   viewMore(book: any) {
-    console.log('books' + book.category)
+    //('books' + book.category)
     this.router.navigate(['/book-page'], { 
       queryParams: {
         id: book.id, 

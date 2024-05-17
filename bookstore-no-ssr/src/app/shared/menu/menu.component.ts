@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   @Output() onLogout: EventEmitter<void> = new EventEmitter(); // Add this line to emit logout event
 
   ngOnInit(): void {
-    console.log('called ngOnInit');
+    //console.log('called ngOnInit');
   }
 
   menuSwitch() {
