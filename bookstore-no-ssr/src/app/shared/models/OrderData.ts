@@ -1,9 +1,9 @@
-export interface Comment {
+export interface OrderData {
     id?: string;
-    bookid: string;
-    username: string;
-    stars: number;
-    comment: string;
-    date: Date;
+    firstname: string;
+    lastname: string;
+    account: string;
+    address: string;
+    email: string;
   }
   
