@@ -4,13 +4,6 @@
 
 export const environment = {
     firebase: {
-       /* //ez a jooooo 
-       apiKey: "AIzaSyC0ZlSmKTpilfYyQN_nNSBYJUE7f0smkFA",
-        authDomain: "bookstore-no-ssr-2.firebaseapp.com",
-        projectId: "bookstore-no-ssr-2",
-        storageBucket: "bookstore-no-ssr-2.appspot.com",
-        messagingSenderId: "836179747545",
-        appId: "1:836179747545:web:8eef6315a3cc7cf86b54c8"*/
         apiKey: "AIzaSyAYI1q8Uer-f7IDe5_fSK2tdX9dwDRAM6E",
   authDomain: "bookstore-1fb04.firebaseapp.com",
   projectId: "bookstore-1fb04",
