@@ -13,7 +13,7 @@ export class ViewerComponent implements OnInit {
   @Input() categoryInput: any;
   imageUrl?: string;
   bookId!: string;
-  book: any[] = [];  // Initialize book as an empty array
+  book: any[] = []; 
 
   constructor(
     private router: Router, 

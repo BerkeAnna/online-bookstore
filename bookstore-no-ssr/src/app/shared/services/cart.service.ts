@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'  // Ez biztosítja, hogy a szerviz globálisan elérhető legyen az alkalmazáson belül
+  providedIn: 'root'  
 })
 export class CartService {
   private items: any[] = [];
@@ -11,7 +11,7 @@ export class CartService {
 
   addItem(item: any): void {
     this.items.push(item);
-    console.log('Item added:', item); // Ensure this logs correctly
+    console.log('Item added:', item); 
 }
 
 
@@ -21,6 +21,6 @@ getItems(): any[] {
 
 
 clearCart(): void {
-  this.items = [];  // Clear the cart array
+  this.items = []; 
 }
 }

@@ -23,7 +23,7 @@ export class FakeLoadingService {
   }
 
   loadingWithObservable(email: string, password: string): Observable<boolean> {
-    // data stream
+    
     return new Observable((subscriber: Subscriber<boolean>) => {
       let i = 0;
       const interval = setInterval(() => {

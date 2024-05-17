@@ -14,8 +14,8 @@ import { OrderGuard } from './shared/services/order.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'book-page', component: BookPageComponent, canActivate: [AuthGuard] }, // Protect this route
-  { path: 'books', component: BooksComponent, canActivate: [AuthGuard] }, // Protect this route
+  { path: 'book-page', component: BookPageComponent, canActivate: [AuthGuard] }, 
+  { path: 'books', component: BooksComponent, canActivate: [AuthGuard] }, 
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent, canActivate: [AuthGuard, OrderGuard] },
   { path: 'successfullyorder', component: SuccessfullyorderComponent, canActivate: [AuthGuard] },
